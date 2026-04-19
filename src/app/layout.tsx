@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { ProfileProvider } from "@/lib/profile-context";
+import NameGuard from "@/components/NameGuard";
 
 export const metadata: Metadata = {
   title: "READIFY - Teman Membaca Pintar",
@@ -27,7 +28,9 @@ export default function RootLayout({
       </head>
       <body className="bg-[#F0F8FF] font-body text-[#333333] antialiased overflow-x-hidden min-h-screen">
         <ProfileProvider>
-          {children}
+          <NameGuard>
+            {children}
+          </NameGuard>
           {/* Version Marker for Deployment Verification */}
           <div className="fixed bottom-2 right-2 text-[10px] font-black text-[#A0AEC0] opacity-20 pointer-events-none z-[9999]">
             READIFY v1.1

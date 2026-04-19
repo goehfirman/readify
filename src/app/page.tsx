@@ -7,32 +7,16 @@ import { useRouter } from "next/navigation";
 import MobileNav from "@/components/MobileNav";
 
 export default function LandingPage() {
-  const { profile, updateProfile, logout, getAvatarUrl } = useProfile();
+  const { profile, logout, getAvatarUrl } = useProfile();
   const router = useRouter();
-  const [showModal, setShowModal] = useState(false);
-  const [inputName, setInputName] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMulai = () => {
-    if (profile.name && profile.name !== "Petualang Baca") {
-      router.push("/explore/library");
-    } else {
-      setShowModal(true);
-    }
+    router.push("/explore/library");
   };
 
   const handleLogout = () => {
     logout();
-    setInputName("");
-  };
-
-  const saveName = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (inputName.trim()) {
-      updateProfile({ name: inputName.trim() });
-      setShowModal(false);
-      router.push("/explore/library");
-    }
   };
 
   const STAGES = [
@@ -220,45 +204,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* NAME PROMPT MODAL */}
-      {showModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 transition-all animate-fade-in">
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowModal(false)}></div>
-          <div className="bg-white rounded-[40px] border-8 border-[#FFB347] p-6 md:p-10 max-w-[400px] w-full relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.2)] animate-bounce-in">
 
-            <h2 className="text-2xl md:text-3xl font-black text-[#5AAFD1] tracking-tighter mb-3">Halo Petualang! 👋</h2>
-            <p className="text-xs font-bold text-[#666666] mb-6 leading-relaxed">
-               Siapa namamu? Beritahu kami agar petualangan membacamu jadi lebih seru dan personal!
-            </p>
-            
-            <form onSubmit={saveName} className="space-y-4">
-               <div className="relative group flex justify-center">
-                  <input 
-                    type="text" 
-                    value={inputName}
-                    onChange={(e) => setInputName(e.target.value)}
-                    placeholder="Ketik namamu di sini..."
-                    autoFocus
-                    className="w-full bg-[#F0F8FF] border-4 border-[#E2E8F0] rounded-3xl px-6 py-2.5 text-sm font-black text-[#333333] placeholder:text-[#A0AEC0] outline-none focus:border-[#FFB347] transition-colors shadow-inner text-center"
-                  />
-                  <span className="absolute right-6 top-1/2 -translate-y-1/2 material-symbols-rounded text-[#A0AEC0] group-focus-within:text-[#FFB347] transition-colors scale-75">edit</span>
-               </div>
-               
-               <button 
-                type="submit" 
-                disabled={!inputName.trim()}
-                className={`w-full py-4 rounded-[20px] font-black text-base tracking-widest transition-all ${
-                  inputName.trim() 
-                  ? 'bg-[#FFB347] text-white shadow-[0_6px_0_#E69A2E] hover:-translate-y-1 hover:shadow-[0_10px_0_#E69A2E] active:translate-y-1 active:shadow-none' 
-                  : 'bg-[#E2E8F0] text-[#A0AEC0] cursor-not-allowed'
-                }`}
-               >
-                  Ayo Mulai! 🚀
-               </button>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* JENJANG PEMBACA SECTION */}
       <section className="bg-[#FFB347] pt-20 pb-32 px-8 relative overflow-hidden">
@@ -320,14 +266,14 @@ export default function LandingPage() {
         </div>
       </footer>
 
-      {/* Sticky Mobile "Mulai" Button */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[150] w-[90%] md:hidden animate-bounce-in" style={{ animationDelay: '1s' }}>
+      {/* STICKY BOTTOM BUTTON (MOBILE ONLY) */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 md:hidden z-[100] animate-bounce-in" style={{ animationDelay: '0.6s' }}>
         <button 
           onClick={handleMulai}
-          className="w-full bg-[#FFB347] text-white py-4 px-6 rounded-[28px] font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_8px_0_#E69A2E] active:translate-y-1 active:shadow-none transition-all"
+          className="w-full bg-[#FFB347] text-white py-4 rounded-[24px] font-black text-xs uppercase tracking-widest shadow-[0_10px_30px_rgba(255,179,71,0.4)] border-4 border-white flex items-center justify-center gap-3 active:scale-95 transition-transform"
         >
-          Ayo Mulai Membaca!
-          <span className="material-symbols-rounded text-xl">rocket_launch</span>
+          <span>Ayo Mulai Membaca! 👋</span>
+          <span className="material-symbols-rounded font-bold text-lg">rocket_launch</span>
         </button>
       </div>
 
