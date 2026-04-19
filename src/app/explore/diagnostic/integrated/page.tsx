@@ -74,14 +74,14 @@ const STORY_VARIATIONS: Record<string, any[]> = {
       ]
     },
     {
-      id: "B-2", title: "Membantu Kakek", theme: "Level B-2 — Pembaca Awal", icon: "volunteer_activism", color: "#87CEEB", colorDark: "#5AAFD1", image: "/images/stories/comp_B2_v2.png",
-      text: "Lani melihat kakek membawa tas belanja yang sangat berat. Lani segera menghampiri kakek dan membantunya menyeberang jalan yang ramai dengan mobil. Kakek tersenyum lebar dan sangat berterima kasih kepada Lani.",
+      id: "B-2", title: "Membantu Nenek", theme: "Level B-2 — Pembaca Awal", icon: "volunteer_activism", color: "#87CEEB", colorDark: "#5AAFD1", image: "/images/stories/comp_B2_v2.png",
+      text: "Lani melihat nenek membawa tas belanja yang sangat berat. Lani segera menghampiri nenek dan membantunya menyeberang jalan yang ramai dengan mobil. Nenek tersenyum lebar dan sangat berterima kasih kepada Lani.",
       questions: [
-        { type: "mc", question: "Siapa yang Lani bantu di jalan?", options: ["Ibu Guru", "Kakek", "Adik kecil", "Teman bermain"], correctAnswers: [1], barrettLevel: "literal" },
-        { type: "cmc", question: "Apa saja tindakan baik yang Lani lakukan?", options: ["Membawa tas berat", "Menyeberangkan kakek", "Memberi uang", "Marah-marah"], correctAnswers: [0, 1], barrettLevel: "literal" },
-        { type: "mc", question: "Ringkasan cerita di atas adalah Lani membantu kakek yang sedang...", options: ["Marah", "Kesusahan membawa tas", "Tertidur"], correctAnswers: [1], barrettLevel: "reorganization" },
-        { type: "essay", question: "Bagaimana perasaan kakek setelah dibantu Lani?", referenceAnswer: "Kakek merasa senang dan berterima kasih.", barrettLevel: "inferential" },
-        { type: "essay", question: "Menurutmu, apa yang terjadi jika Lani tidak membantu kakek menyeberang?", referenceAnswer: "Kakek mungkin akan kesulitan menyeberang di jalan yang ramai.", barrettLevel: "evaluative" }
+        { type: "mc", question: "Siapa yang Lani bantu di jalan?", options: ["Ibu Guru", "Nenek", "Adik kecil", "Teman bermain"], correctAnswers: [1], barrettLevel: "literal" },
+        { type: "cmc", question: "Apa saja tindakan baik yang Lani lakukan?", options: ["Membawa tas berat", "Menyeberangkan nenek", "Memberi uang", "Marah-marah"], correctAnswers: [0, 1], barrettLevel: "literal" },
+        { type: "mc", question: "Ringkasan cerita di atas adalah Lani membantu nenek yang sedang...", options: ["Marah", "Kesusahan membawa tas", "Tertidur"], correctAnswers: [1], barrettLevel: "reorganization" },
+        { type: "essay", question: "Bagaimana perasaan nenek setelah dibantu Lani?", referenceAnswer: "Nenek merasa senang dan berterima kasih.", barrettLevel: "inferential" },
+        { type: "essay", question: "Menurutmu, apa yang terjadi jika Lani tidak membantu nenek menyeberang?", referenceAnswer: "Nenek mungkin akan kesulitan menyeberang di jalan yang ramai.", barrettLevel: "evaluative" }
       ]
     }
   ],
@@ -992,10 +992,10 @@ export default function IntegratedDiagnosticPage() {
                               ? 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' 
                               : finalLevelData.id === 'D'
                               ? 'polygon(50% 0%, 0% 100%, 100% 100%)' 
-                              : finalLevelData.id === 'E'
-                              ? 'none' 
-                              : 'circle(50% at 50% 50%)',
-                           borderRadius: finalLevelData.id === 'E' ? '20px' : '0'
+                              : 'none',
+                           borderRadius: (finalLevelData.id === 'B' || finalLevelData.id === 'C') 
+                              ? '50%' 
+                              : finalLevelData.id === 'E' ? '20px' : '0'
                         }}
                      >
                         <span className={finalLevelData.id === 'D' ? 'mt-8' : ''}>{finalLevelData.id}</span>

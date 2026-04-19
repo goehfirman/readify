@@ -6,6 +6,9 @@ import { ProfileProvider } from "@/lib/profile-context";
 export const metadata: Metadata = {
   title: "READIFY - Teman Membaca Pintar",
   description: "Belajar membaca seru bersama teman pintar dan misi menjaga bumi",
+  icons: {
+    icon: "https://i.ibb.co.com/4RRVvz5L/Screenshot-7.png"
+  }
 };
 
 export default function RootLayout({
@@ -16,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <link rel="icon" href="https://i.ibb.co.com/4RRVvz5L/Screenshot-7.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           rel="stylesheet"
@@ -24,6 +28,10 @@ export default function RootLayout({
       <body className="bg-[#F0F8FF] font-body text-[#333333] antialiased overflow-x-hidden min-h-screen">
         <ProfileProvider>
           {children}
+          {/* Version Marker for Deployment Verification */}
+          <div className="fixed bottom-2 right-2 text-[10px] font-black text-[#A0AEC0] opacity-20 pointer-events-none z-[9999]">
+            READIFY v1.1
+          </div>
         </ProfileProvider>
       </body>
     </html>
