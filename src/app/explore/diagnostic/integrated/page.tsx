@@ -446,8 +446,6 @@ export default function IntegratedDiagnosticPage() {
   // journey -> fluency_reading -> fluency_intermission -> decision -> comp_reading -> result
   const [step, setStep] = useState<string>("fluency_reading");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const matchedIndicesRef = useRef<number[]>([]);
-  const lastMatchedIdxRef = useRef<number>(-1);
   
   // Content Pool State (Randomized per session/start)
   const [selectedLevels, setSelectedLevels] = useState<any[]>([]);
@@ -527,37 +525,28 @@ export default function IntegratedDiagnosticPage() {
       rec.interimResults = true;
       rec.lang = "id-ID";
       rec.onresult = (event: any) => {
+         let fullTranscript = "";
+         for (let i = 0; i < event.results.length; ++i) {
+            fullTranscript += event.results[i][0].transcript + " ";
+         }
          const currentLevel = selectedLevels[currentLevelIdx];
          const currentText = currentLevel.text.toLowerCase().split(" ");
-         
-         // Process results from the current resultIndex forward
-         for (let i = event.resultIndex; i < event.results.length; ++i) {
-            const transcript = event.results[i][0].transcript.toLowerCase().trim();
-            if (!transcript) continue;
-
-            const words = transcript.split(/\s+/).filter(Boolean);
-            
-            // Sequential Matching (Stutter-safe)
-            words.forEach((w: string) => {
-               const cleanW = w.replace(/[.,!?]/g, "").trim();
-               if (!cleanW) return;
-
-               // Look ahead from our last MATCHED index (sequential)
-               const startSearch = lastMatchedIdxRef.current + 1;
-               const endSearch = Math.min(startSearch + 6, currentText.length); // Window of 6 words
-
-               for (let j = startSearch; j < endSearch; j++) {
-                  const targetClean = currentText[j].replace(/[.,!?]/g, "").trim().toLowerCase();
-                  if (targetClean === cleanW && !matchedIndicesRef.current.includes(j)) {
-                     matchedIndicesRef.current.push(j);
-                     lastMatchedIdxRef.current = j;
-                     // Trigger UI update using cumulatively matched indices
-                     setMatchedIndices([...matchedIndicesRef.current].sort((a, b) => a - b));
-                     break;
-                  }
+         const words = fullTranscript.toLowerCase().split(/\s+/).filter(Boolean);
+         const nextMatched: number[] = [];
+         let textCursor = 0;
+         words.forEach(w => {
+            const cleanW = w.replace(/[.,!?]/g, "").trim();
+            if (!cleanW) return;
+            for (let i = textCursor; i < Math.min(textCursor + 4, currentText.length); i++) {
+               const targetClean = currentText[i].replace(/[.,!?]/g, "").trim().toLowerCase();
+               if (targetClean === cleanW && !nextMatched.includes(i)) {
+                  nextMatched.push(i);
+                  textCursor = i + 1;
+                  break;
                }
-            });
-         }
+            }
+         });
+         setMatchedIndices(nextMatched.sort((a, b) => a - b));
       };
       recognitionRef.current = rec;
     }
@@ -596,8 +585,6 @@ export default function IntegratedDiagnosticPage() {
   const startFluencyReading = () => {
     setIsReading(true);
     setMatchedIndices([]);
-    matchedIndicesRef.current = [];
-    lastMatchedIdxRef.current = -1;
     setStartTime(Date.now());
     if (recognitionRef.current) recognitionRef.current.start();
   };
@@ -648,8 +635,6 @@ export default function IntegratedDiagnosticPage() {
     setCurrentLevelIdx(next);
     setTimeLeft(selectedLevels[next].time);
     setMatchedIndices([]);
-    matchedIndicesRef.current = [];
-    lastMatchedIdxRef.current = -1;
     setStep("fluency_reading");
   };
 
