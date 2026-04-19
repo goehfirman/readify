@@ -1,0 +1,173 @@
+@import url('https://fonts.cdnfonts.com/css/google-sans');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFB347; /* Soft Orange / Mango */
+  --color-secondary: #87CEEB; /* Sky Blue */
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F0F8FF; /* Alice Blue */
+  --color-ink: #333333;
+  --color-ink-light: #666666;
+  --color-border: #E2E8F0;
+  
+  --font-headline: 'Google Sans', sans-serif;
+  --font-body: 'Google Sans', sans-serif;
+}
+
+/* ─── Base ─── */
+@layer base {
+  body {
+    @apply bg-[#F0F8FF] text-[#333333] selection:bg-[#FFB347] selection:text-white;
+    zoom: 0.9;
+  }
+}
+
+/* ─── Bubbly Design System ─── */
+
+.card-bubbly {
+  @apply bg-white border-4 border-[#E2E8F0] rounded-[32px] overflow-hidden transition-all duration-300;
+  box-shadow: 0 8px 0 #E2E8F0;
+}
+
+.card-bubbly:hover {
+  @apply border-[#87CEEB] -translate-y-2;
+  box-shadow: 0 16px 0 #87CEEB;
+}
+
+.btn-bubbly {
+  @apply px-8 py-4 bg-[#FFB347] text-white font-black text-xl tracking-wide rounded-full transition-all duration-300;
+  box-shadow: 0 6px 0 #E69A2E;
+}
+
+.btn-bubbly:hover {
+  @apply -translate-y-1 bg-[#FFBF66];
+  box-shadow: 0 8px 0 #E69A2E;
+}
+
+.btn-bubbly:active {
+  @apply translate-y-1;
+  box-shadow: 0 2px 0 #E69A2E;
+}
+
+.btn-bubbly-secondary {
+  @apply px-8 py-4 bg-[#87CEEB] text-white font-black text-xl tracking-wide rounded-full transition-all duration-300;
+  box-shadow: 0 6px 0 #6DB9D6;
+}
+
+.btn-bubbly-secondary:hover {
+  @apply -translate-y-1 bg-[#9BD6F0];
+  box-shadow: 0 8px 0 #6DB9D6;
+}
+
+.btn-bubbly-secondary:active {
+  @apply translate-y-1;
+  box-shadow: 0 2px 0 #6DB9D6;
+}
+
+.text-gradient-bubbly {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FF914D] to-[#FF66C4];
+}
+
+/* ─── Animations ─── */
+
+@keyframes float-cloud {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+.animate-float-cloud {
+  animation: float-cloud 5s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-orbit {
+  animation: orbit 40s linear infinite;
+}
+
+@keyframes counter-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.animate-counter-orbit {
+  animation: counter-orbit 40s linear infinite;
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ─── Decorative Clouds ─── */
+.cloud-blob {
+  @apply absolute bg-white rounded-full opacity-60 mix-blend-overlay;
+  filter: blur(10px);
+}
+
+/* ─── Custom Slider (Bubbly Style) ─── */
+input[type="range"].bubbly-slider {
+  @apply w-full h-6 bg-[#E2E8F0] rounded-full appearance-none transition-all outline-none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input[type="range"].bubbly-slider::-webkit-slider-thumb {
+  @apply appearance-none w-10 h-10 bg-[#FFB347] rounded-full cursor-pointer transition-transform border-4 border-white;
+  box-shadow: 0 4px 0 #E69A2E;
+}
+
+input[type="range"].bubbly-slider::-webkit-slider-thumb:hover {
+  @apply scale-110;
+}
+
+/* ─── Digital Book Animations ─── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes turn-page-right {
+  0% { transform: rotateY(0deg); box-shadow: inset 0 0 0 transparent; }
+  50% { box-shadow: inset 20px 0 50px rgba(0,0,0,0.1); }
+  100% { transform: rotateY(-180deg); box-shadow: inset 0 0 0 transparent; }
+}
+
+@keyframes turn-page-left {
+  0% { transform: rotateY(-180deg); box-shadow: inset 0 0 0 transparent; }
+  50% { box-shadow: inset 20px 0 50px rgba(0,0,0,0.1); }
+  100% { transform: rotateY(0deg); box-shadow: inset 0 0 0 transparent; }
+}
+
+.animate-turn-right {
+  animation: turn-page-right 0.8s ease-in-out forwards;
+}
+
+.animate-turn-left {
+  animation: turn-page-left 0.8s ease-in-out forwards;
+}
+
+/* Gentle Pulse for decorative elements */
+@keyframes pulse-gentle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 3s ease-in-out infinite;
+}
+
