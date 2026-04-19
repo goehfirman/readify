@@ -21,6 +21,7 @@ export default function ExploreLibrary() {
   const [activeFilter, setActiveFilter] = useState({ type: 'sort', value: 'Terbaru' });
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeBookId, setActiveBookId] = useState<string | null>(null);
 
   const displayedBooks = [...allBooks].sort((a, b) => {
     if (activeFilter.type === 'sort' && activeFilter.value === 'Terpopuler') {
@@ -191,6 +192,7 @@ export default function ExploreLibrary() {
           {displayedBooks.map((book, i) => (
             <div 
               key={book.id} 
+              onClick={() => setActiveBookId(activeBookId === String(book.id) ? null : String(book.id))}
               className="group flex flex-col animate-bounce-in relative overflow-hidden h-[260px] sm:h-[280px] rounded-[28px] border-4 border-[#E2E8F0] shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_20px_rgba(0,0,0,0.1)] p-0 bg-white cursor-pointer" 
               style={{ animationDelay: `${0.2 + i * 0.1}s` }}
             >
@@ -231,7 +233,7 @@ export default function ExploreLibrary() {
                      src={book.cover} 
                      alt={book.title} 
                      fill 
-                     className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                     className={`object-cover transition-transform duration-700 group-hover:scale-105 ${activeBookId === String(book.id) ? 'scale-105' : ''}`} 
                      unoptimized={typeof book.cover === 'string' && book.cover.startsWith('data:')}
                   />
                   
@@ -253,7 +255,7 @@ export default function ExploreLibrary() {
                </div>
 
                {/* Slide Up Content Panel */}
-               <div className="absolute left-0 right-0 p-2 pb-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-20 -bottom-[120px] group-hover:bottom-0">
+               <div className={`absolute left-0 right-0 p-2 pb-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-20 group-hover:bottom-0 ${activeBookId === String(book.id) ? 'bottom-0' : '-bottom-[120px]'}`}>
                   <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t-4 border-[#E2E8F0]">
                      <h3 className="text-sm font-black text-[#333333] leading-tight mb-2 line-clamp-2">{book.title}</h3>
                      <div className="flex items-center gap-2 mb-3">
@@ -269,7 +271,7 @@ export default function ExploreLibrary() {
                      </div>
                      
                      {/* Hidden details that appear on hover */}
-                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                     <div className={`transition-opacity duration-300 delay-100 group-hover:opacity-100 ${activeBookId === String(book.id) ? 'opacity-100' : 'opacity-0'}`}>
                         <p className="text-[#666666] text-[10px] font-medium leading-relaxed mb-3 line-clamp-2">{book.desc}</p>
                         <Link href={`/explore/read/${book.id}`} className="bg-[#5AAFD1] text-white hover:bg-[#489DBF] font-bold py-2 px-4 rounded-lg text-xs flex items-center justify-center gap-2 w-full transition-colors shadow-sm">
                            <span>Mulai Baca</span>
@@ -280,7 +282,7 @@ export default function ExploreLibrary() {
                </div>
                
                {/* Dark overlay behind panel */}
-               <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+               <div className={`absolute inset-0 bg-black/10 transition-opacity duration-700 z-10 pointer-events-none group-hover:opacity-100 ${activeBookId === String(book.id) ? 'opacity-100' : 'opacity-0'}`}></div>
             </div>
           ))}
         </div>
