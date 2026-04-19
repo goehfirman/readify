@@ -444,6 +444,7 @@ export default function IntegratedDiagnosticPage() {
 
   // Unified State Machine
   // journey -> fluency_reading -> fluency_intermission -> decision -> comp_reading -> result
+  const [step, setStep] = useState<string>("fluency_reading");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const matchedIndicesRef = useRef<number[]>([]);
   const lastMatchedIdxRef = useRef<number>(-1);
@@ -538,7 +539,7 @@ export default function IntegratedDiagnosticPage() {
             const words = transcript.split(/\s+/).filter(Boolean);
             
             // Sequential Matching (Stutter-safe)
-            words.forEach(w => {
+            words.forEach((w: string) => {
                const cleanW = w.replace(/[.,!?]/g, "").trim();
                if (!cleanW) return;
 
