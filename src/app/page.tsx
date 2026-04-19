@@ -4,12 +4,14 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useProfile } from "@/lib/profile-context";
 import { useRouter } from "next/navigation";
+import MobileNav from "@/components/MobileNav";
 
 export default function LandingPage() {
   const { profile, updateProfile, logout, getAvatarUrl } = useProfile();
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [inputName, setInputName] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMulai = () => {
     if (profile.name && profile.name !== "Petualang Baca") {
@@ -54,35 +56,53 @@ export default function LandingPage() {
       
       {/* SOLID NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
-        <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="hover:scale-105 transition-transform flex items-center shrink-0">
-            <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={120} height={40} className="object-contain drop-shadow-md" />
+            <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={110} height={35} className="object-contain drop-shadow-md" />
           </Link>
 
-          {/* User Profile in Navbar */}
-          <div className="flex items-center gap-4">
+          {/* User Profile & Hamburger */}
+          <div className="flex items-center gap-2 md:gap-4">
             {profile.name && profile.name !== "Petualang Baca" && (
-              <>
-                <div className="hidden md:flex items-center gap-3 bg-[#F0F8FF] px-4 py-1.5 rounded-full border-2 border-[#E2E8F0]">
-                  <div className="w-8 h-8 rounded-full bg-white border-2 border-[#FFB347] overflow-hidden flex items-center justify-center">
-                    <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
-                  </div>
-                  <span className="text-xs font-black text-[#5AAFD1] uppercase tracking-wide">Halo, {profile.name}!</span>
+              <div className="hidden md:flex items-center gap-3 bg-[#F0F8FF] px-4 py-1.5 rounded-full border-2 border-[#E2E8F0]">
+                <div className="w-8 h-8 rounded-full bg-white border-2 border-[#FFB347] overflow-hidden flex items-center justify-center">
+                  <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
                 </div>
-                {/* Logout Button */}
-                <button 
-                  onClick={handleLogout}
-                  className="hidden md:flex items-center gap-2 text-xs font-black text-[#FF4757]/60 hover:text-[#FF4757] transition-colors uppercase tracking-widest px-3 py-2"
-                  title="Keluar / Ganti Nama"
-                >
-                   <span className="material-symbols-rounded text-lg">logout</span>
-                </button>
-              </>
+                <span className="text-xs font-black text-[#5AAFD1] uppercase tracking-wide">Halo, {profile.name}!</span>
+              </div>
+            )}
+            
+            {/* Hamburger Button (Mobile Only) */}
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className="flex md:hidden w-10 h-10 items-center justify-center rounded-xl bg-[#F8FAFC] text-[#5AAFD1] border-2 border-[#E2E8F0] hover:bg-white transition-all shadow-sm active:scale-95"
+            >
+              <span className="material-symbols-rounded text-2xl font-bold">menu</span>
+            </button>
+            
+            {/* Logout Button (Desktop) */}
+            {profile.name && profile.name !== "Petualang Baca" && (
+              <button 
+                onClick={handleLogout}
+                className="hidden md:flex items-center gap-2 text-xs font-black text-[#FF4757]/60 hover:text-[#FF4757] transition-colors uppercase tracking-widest px-3 py-2"
+                title="Keluar / Ganti Nama"
+              >
+                 <span className="material-symbols-rounded text-lg">logout</span>
+              </button>
             )}
           </div>
         </div>
       </nav>
+
+      {/* Mobile Sidebar */}
+      <MobileNav 
+        isOpen={isMenuOpen} 
+        onClose={() => setIsMenuOpen(false)} 
+        profileName={profile.name}
+        avatarUrl={getAvatarUrl()}
+        onLogout={handleLogout}
+      />
 
 
       {/* HERO SECTION */}
@@ -255,7 +275,7 @@ export default function LandingPage() {
              Setiap petualang punya level keberaniannya sendiri! Di tahap mana kamu sekarang?
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
             {[
               { id: 'A', title: 'Pembaca Dini', desc: 'Mengenal huruf & bunyi suku kata.', color: '#FFB347', image: 'https://i.ibb.co.com/RptQhrgk/A.png' },
               { id: 'B', title: 'Pembaca Awal', desc: 'Mulai merangkai kata & kalimat pendek.', color: '#87CEEB', image: 'https://i.ibb.co.com/ZRcw6TTW/B.png' },
@@ -299,6 +319,17 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Sticky Mobile "Mulai" Button */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[150] w-[90%] md:hidden animate-bounce-in" style={{ animationDelay: '1s' }}>
+        <button 
+          onClick={handleMulai}
+          className="w-full bg-[#FFB347] text-white py-4 px-6 rounded-[28px] font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_8px_0_#E69A2E] active:translate-y-1 active:shadow-none transition-all"
+        >
+          Ayo Mulai Membaca!
+          <span className="material-symbols-rounded text-xl">rocket_launch</span>
+        </button>
+      </div>
 
     </main>
   );

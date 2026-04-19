@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useProfile } from "@/lib/profile-context";
 import { useBooks } from "@/hooks/useBooks";
+import MobileNav from "@/components/MobileNav";
 
 const MENU_ITEMS = [
   { icon: "auto_stories", label: "Perpustakaan", active: true },
@@ -19,6 +20,7 @@ export default function ExploreLibrary() {
 
   const [activeFilter, setActiveFilter] = useState({ type: 'sort', value: 'Terbaru' });
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const displayedBooks = [...allBooks].sort((a, b) => {
     if (activeFilter.type === 'sort' && activeFilter.value === 'Terpopuler') {
@@ -47,11 +49,11 @@ export default function ExploreLibrary() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
           <Link href="/" className="hover:scale-105 transition-transform flex items-center shrink-0">
-             <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={120} height={35} className="object-contain drop-shadow-md" unoptimized={true} />
+             <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={110} height={35} className="object-contain drop-shadow-md" unoptimized={true} />
           </Link>
 
           <div className="flex items-center gap-2 md:gap-4 lg:gap-6">
-             {/* Navigation Links */}
+             {/* Navigation Links (Desktop) */}
              <div className="hidden md:flex items-center gap-2">
                 <Link href="/explore/library" className="px-5 py-2 rounded-3xl bg-[#FFB347] text-white border-4 border-[#E69A2E] shadow-[0_4px_0_#E69A2E] flex items-center gap-2 font-bold text-xs uppercase tracking-wide transition-all">
                   <span className="material-symbols-rounded text-lg">auto_stories</span>
@@ -63,18 +65,26 @@ export default function ExploreLibrary() {
                 </Link>
              </div>
 
-             {/* Profile & Logout */}
-             <div className="flex items-center gap-3 bg-[#F0F8FF] px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-2">
+             {/* Hamburger Button (Mobile) */}
+             <button 
+                onClick={() => setIsMenuOpen(true)}
+                className="flex md:hidden w-10 h-10 items-center justify-center rounded-xl bg-[#F8FAFC] text-[#5AAFD1] border-2 border-[#E2E8F0] hover:bg-white transition-all shadow-sm"
+             >
+                <span className="material-symbols-rounded text-2xl font-bold">menu</span>
+             </button>
+
+             {/* Profile & Logout (Desktop style adapted) */}
+             <div className="flex items-center gap-2 md:gap-3 bg-[#F0F8FF] px-2 md:px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-1">
                 <div className="w-8 h-8 rounded-full bg-white border-2 border-[#FFB347] overflow-hidden flex items-center justify-center shrink-0">
                   <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
                 </div>
                 <div className="hidden sm:block">
                    <p className="text-[9px] font-black text-[#A0AEC0] tracking-widest leading-none mb-0.5">Petualang</p>
-                   <h4 className="text-[11px] font-black text-[#5AAFD1] truncate tracking-wide max-w-[100px]">{profile.name}</h4>
+                   <h4 className="text-[11px] font-black text-[#5AAFD1] truncate tracking-wide max-w-[80px] md:max-w-[100px]">{profile.name}</h4>
                 </div>
                 <button 
                   onClick={handleLogout}
-                  className="ml-2 flex items-center justify-center w-8 h-8 rounded-full hover:bg-white text-[#FF4757]/60 hover:text-[#FF4757] transition-all group border-2 border-transparent hover:border-[#FF4757]/20"
+                  className="hidden md:flex ml-2 items-center justify-center w-8 h-8 rounded-full hover:bg-white text-[#FF4757]/60 hover:text-[#FF4757] transition-all group border-2 border-transparent hover:border-[#FF4757]/20"
                   title="Keluar"
                 >
                    <span className="material-symbols-rounded text-base group-hover:rotate-12 transition-transform">logout</span>
@@ -83,6 +93,15 @@ export default function ExploreLibrary() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Sidebar */}
+      <MobileNav 
+        isOpen={isMenuOpen} 
+        onClose={() => setIsMenuOpen(false)} 
+        profileName={profile.name}
+        avatarUrl={getAvatarUrl()}
+        onLogout={handleLogout}
+      />
 
       {/* Main Content */}
       <main className="w-full max-w-[1400px] mx-auto mt-24 px-6 md:px-10 pb-20 pt-8 relative overflow-hidden z-50">
@@ -100,9 +119,8 @@ export default function ExploreLibrary() {
         </div>
         
         {/* Sorting & Filter Navbar */}
-        <div className="mb-12 flex relative z-50 animate-bounce-in" style={{ animationDelay: '0.05s' }}>
-           
-           <div className="flex gap-2 bg-white p-2 rounded-3xl border-4 border-[#E2E8F0] shadow-sm overflow-x-visible shrink-0 z-50">
+        <div className="mb-12 flex relative z-50 animate-bounce-in w-full overflow-hidden" style={{ animationDelay: '0.05s' }}>
+           <div className="flex gap-2 bg-white p-2 rounded-3xl border-4 border-[#E2E8F0] shadow-sm overflow-x-auto scrollbar-hide shrink-0 z-50 max-w-full">
               <button
                 onClick={() => { setActiveFilter({ type: 'sort', value: 'Terbaru' }); setOpenDropdown(null); }}
                 className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sort' && activeFilter.value === 'Terbaru' ? 'bg-[#FFB347] text-white border-[#E69A2E] shadow-[0_4px_0_#E69A2E]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
