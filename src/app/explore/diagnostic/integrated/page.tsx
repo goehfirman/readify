@@ -715,7 +715,15 @@ export default function IntegratedDiagnosticPage() {
   };
 
   const finalLevelData = getFinalPedagogicalData();
-  const finalFluency = fluencyHistory[fluencyHistory.length - 1] || { accuracy: 0, wpm: 0 };
+  const finalFluency = useMemo(() => {
+    if (fluencyHistory.length === 0) return { accuracy: 0, wpm: 0 };
+    const sumAcc = fluencyHistory.reduce((sum, item) => sum + (item.accuracy || 0), 0);
+    const sumWpm = fluencyHistory.reduce((sum, item) => sum + (item.wpm || 0), 0);
+    return {
+      accuracy: Math.round(sumAcc / fluencyHistory.length),
+      wpm: Math.round(sumWpm / fluencyHistory.length)
+    };
+  }, [fluencyHistory]);
 
   // Comprehensive Fluency Rubric Score (1-16)
   const fluencyRubric = useMemo(() => {
