@@ -448,7 +448,6 @@ export default function IntegratedDiagnosticPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const matchedIndicesRef = useRef<number[]>([]);
   const lastMatchedIdxRef = useRef<number>(-1);
-  const processedResultIndexRef = useRef<number>(0);
   
   // Content Pool State (Randomized per session/start)
   const [selectedLevels, setSelectedLevels] = useState<any[]>([]);
@@ -544,9 +543,8 @@ export default function IntegratedDiagnosticPage() {
                if (!cleanW) return;
 
                // Look ahead from our last MATCHED index (sequential)
-               // Window of 5 words to allow for slight skips/mispronunciations
                const startSearch = lastMatchedIdxRef.current + 1;
-               const endSearch = Math.min(startSearch + 5, currentText.length);
+               const endSearch = Math.min(startSearch + 6, currentText.length); // Window of 6 words
 
                for (let j = startSearch; j < endSearch; j++) {
                   const targetClean = currentText[j].replace(/[.,!?]/g, "").trim().toLowerCase();
