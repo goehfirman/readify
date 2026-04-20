@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { ProfileProvider } from "@/lib/profile-context";
 import NameGuard from "@/components/NameGuard";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "READIFY - Teman Membaca Pintar",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className="bg-[#F0F8FF] font-body text-[#333333] antialiased overflow-x-hidden min-h-screen" style={{ zoom: 1.1 }}>
         <ProfileProvider>
           <NameGuard>
+            <Navbar />
             {children}
           </NameGuard>
           {/* Version Marker for Deployment Verification */}

@@ -207,61 +207,21 @@ export default function ComprehensionDiagnosticPage() {
       <div className="cloud-blob w-[600px] h-[400px] -top-20 -left-20 bg-white shadow-[0_0_80px_rgba(255,255,255,1)]"></div>
       <div className="cloud-blob w-[400px] h-[300px] bottom-10 right-10 bg-white shadow-[0_0_80px_rgba(255,255,255,1)]"></div>
 
-      {/* SOLID NAVBAR */}
-      {/* Top Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
-          <Link href="/" className="hover:scale-105 transition-transform flex items-center shrink-0">
-             <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={120} height={35} className="object-contain drop-shadow-md" unoptimized={true} />
-          </Link>
-
-          <div className="flex items-center gap-2 md:gap-4 lg:gap-6">
-             {step !== "journey" ? (
-                 <div className="flex items-center gap-2 md:gap-3 bg-white px-3 md:px-4 py-1 md:py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-sm animate-bounce-in">
-                     <span className="material-symbols-rounded text-lg md:text-xl" style={{ color: story.color }}>{story.icon}</span>
-                     <div className="hidden sm:block text-left">
-                        <p className="text-[8px] md:text-[9px] font-black text-[#A0AEC0] uppercase tracking-[0.2em] leading-none mb-0.5">Materi Uji Pemahaman</p>
-                        <h4 className="text-[10px] md:text-[11px] font-black uppercase leading-none" style={{ color: story.colorDark }}>{story.theme}</h4>
-                     </div>
-                 </div>
-             ) : (
-                 <>
-                     {/* Navigation Links */}
-                     <div className="hidden md:flex items-center gap-2">
-                        <Link href="/explore/library" className="px-5 py-2 rounded-3xl bg-white text-[#A0AEC0] border-4 border-transparent hover:border-[#E2E8F0] hover:bg-[#F8FAFC] flex items-center gap-2 font-bold text-xs uppercase tracking-wide transition-all group">
-                          <span className="material-symbols-rounded text-lg group-hover:text-[#FFB347]">auto_stories</span>
-                          <span>Perpustakaan</span>
-                        </Link>
-                        <Link href="/explore/diagnostic" className="px-5 py-2 rounded-3xl bg-[#FFB347] text-white border-4 border-[#E69A2E] shadow-[0_4px_0_#E69A2E] flex items-center gap-2 font-bold text-xs uppercase tracking-wide transition-all">
-                          <span className="material-symbols-rounded text-lg">stairs</span>
-                          <span>Diagnosis Membaca</span>
-                        </Link>
-                     </div>
-
-                     {/* Profile & Logout */}
-                     <div className="flex items-center gap-3 bg-[#F0F8FF] px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-2">
-                        <div className="w-8 h-8 rounded-full bg-white border-2 border-[#FFB347] overflow-hidden flex items-center justify-center shrink-0">
-                          <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
-                        </div>
-                        <div className="hidden sm:block">
-                           <p className="text-[9px] font-black text-[#A0AEC0] uppercase tracking-widest leading-none mb-0.5">PETUALANG</p>
-                           <h4 className="text-[11px] font-black text-[#5AAFD1] truncate uppercase tracking-wide max-w-[100px]">{profile.name}</h4>
-                        </div>
-                        <button 
-                          onClick={() => { logout(); router.push("/"); }}
-                          className="ml-2 flex items-center justify-center w-8 h-8 rounded-full hover:bg-white text-[#FF4757]/60 hover:text-[#FF4757] transition-all group border-2 border-transparent hover:border-[#FF4757]/20"
-                          title="Keluar"
-                        >
-                           <span className="material-symbols-rounded text-base group-hover:rotate-12 transition-transform">logout</span>
-                        </button>
-                     </div>
-                 </>
-             )}
-          </div>
-        </div>
-      </nav>
+      {/* SOLID      </nav>
 
       <main className="w-full max-w-6xl mt-32 px-4 md:px-8 pb-32 relative z-50">
+        {/* Diagnostic Meta Info (Restored from old Nav) */}
+        {step !== "journey" && (
+          <div className="flex items-center justify-center mb-8 max-w-4xl mx-auto animate-bounce-in">
+             <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-2xl border-4 border-[#E2E8F0] shadow-sm">
+                <span className="material-symbols-rounded text-2xl" style={{ color: story.color }}>{story.icon}</span>
+                <div className="text-left">
+                   <p className="text-[9px] font-black text-[#A0AEC0] uppercase tracking-[0.2em] leading-none mb-0.5">Materi Uji Pemahaman</p>
+                   <h4 className="text-[12px] font-black uppercase leading-none" style={{ color: story.colorDark }}>{story.theme}</h4>
+                </div>
+             </div>
+          </div>
+        )}
         {/* Journey Step */}
         {step === "journey" && (
             <div className="animate-bounce-in grid grid-cols-1 lg:grid-cols-12 gap-10 mt-10">
