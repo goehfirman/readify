@@ -44,7 +44,7 @@ export default function ExploreLibrary() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#F0F8FF] font-body text-[#333333]">
+    <div className="flex min-h-screen bg-[#F0F8FF] font-body text-[#333333]" style={{ zoom: 0.9 }}>
       
       {/* Top Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
