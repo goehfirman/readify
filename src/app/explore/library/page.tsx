@@ -47,7 +47,7 @@ export default function ExploreLibrary() {
 
 
       {/* Main Content */}
-      <main className="w-full max-w-6xl mx-auto mt-24 px-6 md:px-10 pb-20 pt-8 relative overflow-hidden z-50 transition-all duration-300" style={{ zoom: 0.9 }}>
+      <main className="w-full max-w-6xl mx-auto mt-24 px-6 md:px-10 pb-20 pt-8 relative z-50 transition-all duration-300" style={{ zoom: 0.9 }}>
         
         {/* Decorative Clouds */}
         <div className="cloud-blob w-[400px] h-[250px] top-[-50px] right-[-50px] bg-white shadow-[0_0_80px_rgba(255,255,255,1)]"></div>
@@ -62,18 +62,18 @@ export default function ExploreLibrary() {
         </div>
         
         {/* Sorting & Filter Navbar */}
-        <div className="mb-12 flex relative z-50 animate-bounce-in w-full overflow-hidden" style={{ animationDelay: '0.05s' }}>
-           <div className="flex gap-2 bg-white p-2 rounded-3xl border-4 border-[#E2E8F0] shadow-sm overflow-x-auto scrollbar-hide shrink-0 z-50 max-w-full">
+        <div className="mb-12 flex relative z-[100] animate-bounce-in w-full" style={{ animationDelay: '0.05s' }}>
+           <div className="flex flex-wrap gap-2 bg-white p-2 rounded-3xl border-4 border-[#E2E8F0] shadow-sm shrink-0 z-[100] max-w-full">
               <button
                 onClick={() => { setActiveFilter({ type: 'sort', value: 'Terbaru' }); setOpenDropdown(null); }}
-                className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sort' && activeFilter.value === 'Terbaru' ? 'bg-[#FFB347] text-white border-[#E69A2E] shadow-[0_4px_0_#E69A2E]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
+                className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sort' && activeFilter.value === 'Terbaru' ? 'bg-[#5AAFD1] text-white border-[#4691B0] shadow-[0_4px_0_#4691B0]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
               >
                 Terbaru
               </button>
               
               <button
                 onClick={() => { setActiveFilter({ type: 'sort', value: 'Terpopuler' }); setOpenDropdown(null); }}
-                className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sort' && activeFilter.value === 'Terpopuler' ? 'bg-[#FFB347] text-white border-[#E69A2E] shadow-[0_4px_0_#E69A2E]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
+                className={`whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sort' && activeFilter.value === 'Terpopuler' ? 'bg-[#5AAFD1] text-white border-[#4691B0] shadow-[0_4px_0_#4691B0]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
               >
                 Terpopuler
               </button>
@@ -81,7 +81,7 @@ export default function ExploreLibrary() {
               <div className="relative">
                  <button
                    onClick={() => setOpenDropdown(openDropdown === 'jenjang' ? null : 'jenjang')}
-                   className={`flex items-center gap-1 whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'jenjang' || openDropdown === 'jenjang' ? 'bg-[#FFB347] text-white border-[#E69A2E] shadow-[0_4px_0_#E69A2E]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
+                   className={`flex items-center gap-1 whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'jenjang' || openDropdown === 'jenjang' ? 'bg-[#5AAFD1] text-white border-[#4691B0] shadow-[0_4px_0_#4691B0]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
                  >
                    {activeFilter.type === 'jenjang' ? activeFilter.value : 'Jenjang Pembaca'}
                    <span className="material-symbols-rounded text-sm">{openDropdown === 'jenjang' ? 'expand_less' : 'expand_more'}</span>
@@ -104,7 +104,7 @@ export default function ExploreLibrary() {
               <div className="relative">
                  <button
                    onClick={() => setOpenDropdown(openDropdown === 'sdg' ? null : 'sdg')}
-                   className={`flex items-center gap-1 whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sdg' || openDropdown === 'sdg' ? 'bg-[#FFB347] text-white border-[#E69A2E] shadow-[0_4px_0_#E69A2E]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
+                   className={`flex items-center gap-1 whitespace-nowrap px-4 md:px-6 py-2 md:py-3 rounded-2xl text-[10px] md:text-xs font-black tracking-widest transition-all border-2 ${activeFilter.type === 'sdg' || openDropdown === 'sdg' ? 'bg-[#5AAFD1] text-white border-[#4691B0] shadow-[0_4px_0_#4691B0]' : 'bg-transparent border-transparent text-[#A0AEC0] hover:text-[#333333]'}`}
                  >
                    {activeFilter.type === 'sdg' ? (activeFilter.value.split(':')[0] || 'Tema SDG\'s') : 'Tema SDG\'s'}
                    <span className="material-symbols-rounded text-sm">{openDropdown === 'sdg' ? 'expand_less' : 'expand_more'}</span>
