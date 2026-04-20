@@ -208,9 +208,9 @@ export default function FluencyDiagnosticPage() {
 
 
       <main className="w-full max-w-6xl mt-36 px-4 md:px-8 pb-32 relative z-50">
-         {/* Diagnostic Meta Info (Restored from old Nav) */}
          {step === "reading" && (
            <div className="flex items-center justify-between mb-8 max-w-5xl mx-auto animate-bounce-in">
+             {/* Left: Badge */}
              <div className="flex items-center gap-2 md:gap-3 bg-white px-3 md:px-4 py-2 rounded-2xl border-4 border-[#E2E8F0] shadow-sm">
                  <div className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-sm font-black text-sm text-white" style={{ backgroundColor: '#FFB347' }}>
                     {currentLevelData.id}
@@ -221,9 +221,28 @@ export default function FluencyDiagnosticPage() {
                  </div>
              </div>
              
-             <div className={`flex items-center gap-2 px-6 py-2 rounded-2xl font-black text-xl border-4 shadow-sm transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
-                 <span className="material-symbols-rounded text-2xl">timer</span>
-                 {timeLeft}s
+             {/* Right: Actions & Timer Group */}
+             <div className="flex items-center gap-4">
+                {!isReading ? (
+                   <button 
+                     onClick={startReading} 
+                     className="btn-bubbly px-8 py-2 bg-[#FFB347] flex items-center gap-2 shadow-[0_4px_0_#E69A2E] text-base"
+                   >
+                     Mulai Membaca <span className="material-symbols-rounded text-xl">mic</span>
+                   </button>
+                ) : (
+                   <button 
+                     onClick={stopReading} 
+                     className="btn-bubbly px-8 py-2 !bg-[#34D399] !shadow-[0_4px_0_#059669] flex items-center gap-2 text-base"
+                   >
+                     Selesai <span className="material-symbols-rounded text-xl">check_circle</span>
+                   </button>
+                )}
+
+                <div className={`flex items-center gap-2 px-6 py-2 rounded-2xl font-black text-xl border-4 shadow-sm transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
+                    <span className="material-symbols-rounded text-2xl">timer</span>
+                    {timeLeft}s
+                </div>
              </div>
            </div>
          )}
@@ -281,15 +300,7 @@ export default function FluencyDiagnosticPage() {
             <div className="animate-bounce-in max-w-5xl mx-auto">
 
 
-               {/* Mic indicator */}
-               {isReading && (
-                 <div className="flex justify-center mb-6 animate-bounce-in">
-                   <div className="flex items-center gap-3 bg-[#34D399] px-6 py-3 rounded-full border-4 border-[#059669] shadow-[0_4px_0_#059669]">
-                     <span className="material-symbols-rounded text-xl text-white animate-pulse">graphic_eq</span>
-                     <span className="text-xs font-black text-white uppercase tracking-widest">Mikrofon Aktif — Bacalah dengan keras!</span>
-                   </div>
-                 </div>
-               )}
+
 
                <div className="card-bubbly bg-[#FFFAF0] border-4 border-[#E2E8F0] p-6 md:p-10 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch flex-1">
@@ -312,20 +323,6 @@ export default function FluencyDiagnosticPage() {
                            })}
                         </article>
                      </div>
-                  </div>
-
-                  <div className="mt-12 flex justify-center border-t-4 border-[#E2E8F0]/50 pt-8 z-10 w-full">
-                     {!isReading ? (
-                        <button onClick={startReading} className="btn-bubbly px-12 py-5 text-xl flex items-center gap-4 bg-[#FFB347] group w-full md:w-auto justify-center">
-                           <span className="material-symbols-rounded text-3xl group-hover:animate-bounce">mic</span>
-                           MULAI MEMBACA!
-                        </button>
-                     ) : (
-                        <button onClick={stopReading} className="btn-bubbly px-12 py-5 text-xl flex items-center gap-4 !bg-[#34D399] !shadow-[0_6px_0_#059669] hover:!bg-[#6EE7B7] w-full md:w-auto justify-center">
-                           <span className="material-symbols-rounded text-3xl">check_circle</span>
-                           SELESAI!
-                        </button>
-                     )}
                   </div>
                </div>
             </div>

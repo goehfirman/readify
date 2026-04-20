@@ -814,18 +814,49 @@ export default function IntegratedDiagnosticPage() {
                <div className="card-bubbly bg-[#FFFAF0] p-8 md:p-12 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
                   {/* Integrated Header - Badge & Timer */}
                   <div className="flex justify-between items-center mb-10">
-                     <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-full border-4 border-[#E2E8F0] shadow-sm">
-                        <div className="w-10 h-10 bg-[#FFB347] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
+                      {/* Left: Level Badge */}
+                      <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-full border-4 border-[#E2E8F0] shadow-sm">
+                         <div className="w-10 h-10 bg-[#FFB347] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
 
-                        <div className="text-left font-black uppercase">
-                           <p className="text-[9px] text-[#A0AEC0] tracking-widest leading-none mb-0.5">Kelancaran</p>
-                           <h4 className="text-sm text-[#333333]">{currentLevel.title}</h4>
-                        </div>
-                     </div>
-                     <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
-                        <span className="material-symbols-rounded text-2xl">timer</span>{timeLeft}s
-                     </div>
-                  </div>
+                         <div className="text-left font-black uppercase">
+                            <p className="text-[9px] text-[#A0AEC0] tracking-widest leading-none mb-0.5">Kelancaran</p>
+                            <h4 className="text-sm text-[#333333]">{currentLevel.title}</h4>
+                         </div>
+                      </div>
+
+                      {/* Right: Actions & Timer Group */}
+                      <div className="flex items-center gap-4">
+                         {!isReading ? (
+                            <button 
+                              onClick={startFluencyReading} 
+                              className="btn-bubbly px-8 py-3 bg-[#FFB347] flex items-center gap-2 shadow-[0_4px_0_#E69A2E] text-base"
+                            >
+                              Mulai Membaca <span className="material-symbols-rounded text-xl">mic</span>
+                            </button>
+                         ) : (
+                            <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm p-1.5 rounded-full border-2 border-[#E2E8F0]">
+                               {/* Smaller Mic Indicator */}
+                               <div className="relative w-10 h-10 flex items-center justify-center">
+                                 <div className="absolute inset-0 rounded-full bg-[#FF4757] opacity-20 animate-ping"></div>
+                                 <div className="relative w-8 h-8 bg-[#FF4757] rounded-full border-2 border-[#D63031] shadow-sm flex items-center justify-center z-10">
+                                   <span className="material-symbols-rounded text-white text-base">mic</span>
+                                 </div>
+                               </div>
+
+                               <button 
+                                 onClick={stopFluencyReading} 
+                                 className="btn-bubbly px-8 py-3 !bg-[#34D399] !shadow-[0_4px_0_#059669] flex items-center gap-2 text-base"
+                               >
+                                 Selesai <span className="material-symbols-rounded text-xl">check_circle</span>
+                               </button>
+                            </div>
+                         )}
+
+                         <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
+                            <span className="material-symbols-rounded text-2xl">timer</span>{timeLeft}s
+                         </div>
+                      </div>
+                   </div>
                   
                   <div className="grid md:grid-cols-12 gap-10 items-center">
                       <div className="md:col-span-4 relative aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-md bg-[#F8FAFC]">
@@ -839,24 +870,6 @@ export default function IntegratedDiagnosticPage() {
                            })}
                         </p>
                      </div>
-                  </div>
-                  <div className="mt-12 flex justify-center items-center gap-8">
-                     {!isReading ? (
-                        <button onClick={startFluencyReading} className="btn-bubbly px-12 py-5 bg-[#FFB347] flex items-center gap-3 shadow-[0_6px_0_#E69A2E]">Mulai Membaca <span className="material-symbols-rounded">mic</span></button>
-                     ) : (
-                        <>
-                          {/* Animated Mic Indicator - Red Theme, Static Mic, Active Effects */}
-                          <div className="relative w-14 h-14 flex items-center justify-center">
-                            <div className="absolute inset-0 rounded-full bg-[#FF4757] opacity-20 animate-ping"></div>
-                            <div className="absolute inset-1 rounded-full bg-[#FF4757] opacity-30 animate-pulse" style={{ animationDuration: '1.2s' }}></div>
-                            <div className="relative w-10 h-10 bg-[#FF4757] rounded-full border-2 border-[#D63031] shadow-md flex items-center justify-center z-10">
-                              <span className="material-symbols-rounded text-white text-xl">mic</span>
-                            </div>
-                          </div>
-
-                          <button onClick={stopFluencyReading} className="btn-bubbly px-12 py-5 !bg-[#34D399] !shadow-[0_6px_0_#059669] flex items-center gap-3">Selesai <span className="material-symbols-rounded">check_circle</span></button>
-                        </>
-                     )}
                   </div>
                </div>
             </div>

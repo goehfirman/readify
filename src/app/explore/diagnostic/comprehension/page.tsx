@@ -207,21 +207,33 @@ export default function ComprehensionDiagnosticPage() {
       <div className="cloud-blob w-[600px] h-[400px] -top-20 -left-20 bg-white shadow-[0_0_80px_rgba(255,255,255,1)]"></div>
       <div className="cloud-blob w-[400px] h-[300px] bottom-10 right-10 bg-white shadow-[0_0_80px_rgba(255,255,255,1)]"></div>
 
-      {/* SOLID      </nav>
-
       <main className="w-full max-w-6xl mt-32 px-4 md:px-8 pb-32 relative z-50">
         {/* Diagnostic Meta Info (Restored from old Nav) */}
         {step !== "journey" && (
-          <div className="flex items-center justify-center mb-8 max-w-4xl mx-auto animate-bounce-in">
-             <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-2xl border-4 border-[#E2E8F0] shadow-sm">
+          <div className="flex items-center justify-between mb-8 max-w-4xl mx-auto animate-bounce-in">
+             <div className="flex items-center gap-3 bg-white px-6 py-2.5 rounded-2xl border-4 border-[#E2E8F0] shadow-sm">
                 <span className="material-symbols-rounded text-2xl" style={{ color: story.color }}>{story.icon}</span>
                 <div className="text-left">
                    <p className="text-[9px] font-black text-[#A0AEC0] uppercase tracking-[0.2em] leading-none mb-0.5">Materi Uji Pemahaman</p>
                    <h4 className="text-[12px] font-black uppercase leading-none" style={{ color: story.colorDark }}>{story.theme}</h4>
                 </div>
              </div>
+
+             {/* Right: Actions Group (Consistency with Fluency) */}
+             {step === "reading" && !showQuestions && (
+                <button 
+                  onClick={() => {
+                    setShowQuestions(true);
+                    setTimeout(() => document.getElementById("quiz-section")?.scrollIntoView({ behavior: 'smooth' }), 300);
+                  }} 
+                  className="btn-bubbly px-8 py-2 bg-[#87CEEB] border-[#5AAFD1] text-white flex items-center gap-2 shadow-[0_4px_0_#5AAFD1] text-base"
+                >
+                  TAMPILKAN PERTANYAAN <span className="material-symbols-rounded text-xl">expand_more</span>
+                </button>
+             )}
           </div>
         )}
+
         {/* Journey Step */}
         {step === "journey" && (
             <div className="animate-bounce-in grid grid-cols-1 lg:grid-cols-12 gap-10 mt-10">
@@ -274,17 +286,7 @@ export default function ComprehensionDiagnosticPage() {
               </div>
             </div>
 
-            {/* Questions Toggle */}
-            {!showQuestions ? (
-               <div className="flex justify-center mt-10">
-                 <button onClick={() => {
-                   setShowQuestions(true);
-                   setTimeout(() => document.getElementById("quiz-section")?.scrollIntoView({ behavior: 'smooth' }), 300);
-                 }} className="btn-bubbly-secondary px-12 py-5 text-xl flex items-center gap-3 shadow-[0_6px_0_#A0AEC0] active:shadow-none hover:border-[#87CEEB] border-[#E2E8F0] bg-white text-[#5AAFD1]">
-                   TAMPILKAN PERTANYAAN <span className="material-symbols-rounded text-2xl font-bold">expand_more</span>
-                 </button>
-               </div>
-            ) : (
+            {showQuestions && (
                <div id="quiz-section" className="mt-8 bg-white border-4 border-[#E2E8F0] p-6 md:p-10 rounded-[40px] shadow-sm relative animate-fade-in-up">
                   {/* Progress Indicator */}
                   <div className="flex items-center justify-between mb-8 px-2 border-b-2 border-[#E2E8F0] pb-6">
