@@ -869,23 +869,22 @@ export default function IntegratedDiagnosticPage() {
          {/* 2. Fluency Reading */}
          {step === "fluency_reading" && selectedLevels.length > 0 && (
             <div className="animate-bounce-in max-w-6xl mx-auto">
-               <div className="flex justify-between items-center mb-10">
-                  <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-full border-4 border-[#E2E8F0] shadow-sm">
-                     <div className="w-10 h-10 bg-[#FFB347] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
+               <div className="card-bubbly bg-[#FFFAF0] p-8 md:p-12 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+                  {/* Integrated Header - Badge & Timer */}
+                  <div className="flex justify-between items-center mb-10">
+                     <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-full border-4 border-[#E2E8F0] shadow-sm">
+                        <div className="w-10 h-10 bg-[#FFB347] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
 
-                     <div className="text-left font-black uppercase">
-                        <p className="text-[9px] text-[#A0AEC0] tracking-widest leading-none mb-0.5">Kelancaran</p>
-                        <h4 className="text-sm text-[#333333]">{currentLevel.title}</h4>
+                        <div className="text-left font-black uppercase">
+                           <p className="text-[9px] text-[#A0AEC0] tracking-widest leading-none mb-0.5">Kelancaran</p>
+                           <h4 className="text-sm text-[#333333]">{currentLevel.title}</h4>
+                        </div>
+                     </div>
+                     <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
+                        <span className="material-symbols-rounded text-2xl">timer</span>{timeLeft}s
                      </div>
                   </div>
-                  <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
-                     <span className="material-symbols-rounded text-2xl">timer</span>{timeLeft}s
-                  </div>
-               </div>
-               
-
-
-               <div className="card-bubbly bg-[#FFFAF0] p-8 md:p-12 min-h-[400px] flex flex-col justify-between">
+                  
                   <div className="grid md:grid-cols-12 gap-10 items-center">
                       <div className="md:col-span-4 relative aspect-square rounded-3xl overflow-hidden border-4 border-white shadow-md bg-[#F8FAFC]">
                         {currentLevel?.image && <Image src={currentLevel.image} alt="Illust" fill className="object-cover" unoptimized />}
