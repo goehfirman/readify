@@ -30,7 +30,7 @@ export default function LandingPage() {
   const [activeStage, setActiveStage] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#F0F8FF] font-body text-[#333333] relative overflow-x-hidden" style={{ zoom: 1.1 }}>
+    <main className="min-h-screen bg-[#F0F8FF] font-body text-[#333333] relative overflow-x-hidden">
       
       {/* Background Decor */}
       <div className="cloud-blob w-[600px] h-[400px] -top-20 -left-20 bg-white shadow-[0_0_50px_rgba(255,255,255,1)]"></div>
@@ -40,7 +40,7 @@ export default function LandingPage() {
       
       {/* SOLID NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 md:px-8 py-3 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="hover:scale-105 transition-transform flex items-center shrink-0">
             <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={110} height={35} className="object-contain drop-shadow-md" />
@@ -90,7 +90,7 @@ export default function LandingPage() {
 
 
       {/* HERO SECTION */}
-      <section className="relative z-50 pt-32 pb-10 px-8 max-w-7xl mx-auto flex flex-col justify-center min-h-[80vh]">
+      <section className="relative z-50 pt-32 pb-10 px-6 md:px-8 max-w-6xl mx-auto flex flex-col justify-center min-h-[80vh]">
         <div className="flex items-center justify-between gap-6">
           {/* Left: Text Content */}
           <div className="max-w-2xl">
