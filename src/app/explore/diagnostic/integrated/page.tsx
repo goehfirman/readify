@@ -862,7 +862,7 @@ export default function IntegratedDiagnosticPage() {
        />
 
        {/* Main Layout Content */}
-       <main className="w-full max-w-5xl mt-32 px-6 md:px-8 pb-32 relative z-50">
+       <main className="w-full max-w-5xl mx-auto mt-32 px-6 md:px-8 pb-32 relative z-50">
          
 
 
@@ -923,7 +923,7 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 3. Intermission */}
          {step === "fluency_intermission" && (
-            <div className="animate-bounce-in max-w-3xl mx-auto mt-10 text-center">
+            <div className="animate-bounce-in max-w-5xl mx-auto mt-10 text-center">
                <div className="card-bubbly bg-[#FFF3E0] p-12 border-[#FFB347] shadow-[0_30px_60px_rgba(255,179,71,0.15)]">
                   <h2 className="text-4xl font-black text-[#E69A2E] mb-4">Luar Biasa! 🎉</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kamu sangat lancar di Level {currentLevel?.id}! <br/> Siap untuk tantangan yang lebih tinggi?</p>
@@ -934,7 +934,7 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 4. Decision Transition */}
          {step === "decision" && (
-            <div className="animate-bounce-in max-w-3xl mx-auto mt-10 text-center">
+            <div className="animate-bounce-in max-w-5xl mx-auto mt-10 text-center">
                <div className="card-bubbly bg-[#E0F2FE] p-12 border-[#87CEEB] shadow-[0_30px_60px_rgba(135,206,235,0.15)]">
                   <h2 className="text-4xl font-black text-[#5AAFD1] mb-4">Kamu Hebat! 🏆</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kelancaran membacamu sudah di level {currentLevel?.id}. Sekarang, ayo kita uji pemahamanmu dengan satu cerita menarik!</p>
@@ -946,7 +946,7 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 5. Comprehension Reading & Test */}
          {step === "comp_reading" && (
-            <div className="animate-bounce-in max-w-4xl mx-auto">
+            <div className="animate-bounce-in max-w-5xl mx-auto">
                <div className="text-center mb-10">
                   <div className="inline-flex items-center gap-3 bg-white border-4 border-[#E2E8F0] px-6 py-2.5 rounded-full shadow-sm mb-4">
                      <span className="material-symbols-rounded text-2xl" style={{color: currentStory?.color}}>{currentStory?.icon}</span>
@@ -1025,7 +1025,7 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 6. Comprehensive Pedagogical Result Step */}
          {step === "result" && (
-            <div className="animate-bounce-in max-w-6xl mx-auto">
+            <div className="animate-bounce-in max-w-5xl mx-auto">
                <div className="card-bubbly p-10 md:p-16 border-[#E2E8F0] bg-white relative overflow-hidden">
                   
                   {/* Result Header with Custom Symbol */}
