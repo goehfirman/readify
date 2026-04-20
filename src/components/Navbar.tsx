@@ -5,12 +5,16 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useProfile } from "@/lib/profile-context";
 import MobileNav from "./MobileNav";
+import NamePromptModal from "./NamePromptModal";
 
 export default function Navbar() {
   const { profile, logout, getAvatarUrl } = useProfile();
   const pathname = usePathname();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNameModal, setShowNameModal] = useState(false);
+
+  const isDefaultUser = profile.name === "Petualang Baca";
 
   // Hide navbar on specialized reading pages and potentially landing if we want, 
   // but user said CONSISTENT in every page. 
@@ -75,26 +79,39 @@ export default function Navbar() {
               <span className="material-symbols-rounded text-2xl font-bold">menu</span>
             </button>
 
-            {/* Profile & Logout */}
-            <div className="flex items-center gap-2 md:gap-3 bg-[#F0F8FF] px-2 md:px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-1">
-              <div className="w-8 h-8 rounded-full bg-white border-2 border-[#5AAFD1] overflow-hidden flex items-center justify-center shrink-0">
-                <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
-              </div>
-              <div className="hidden sm:block">
-                <p className="text-[9px] font-black text-[#A0AEC0] tracking-widest leading-none mb-0.5">Petualang</p>
-                <h4 className="text-[11px] font-black text-[#5AAFD1] truncate tracking-wide max-w-[80px] md:max-w-[100px]">{profile.name || "Petualang Baca"}</h4>
-              </div>
+            {/* Profile & Logout / Login Button */}
+            {isDefaultUser ? (
               <button 
-                onClick={handleLogout}
-                className="hidden md:flex ml-2 items-center justify-center w-8 h-8 rounded-full hover:bg-white text-[#FF4757]/60 hover:text-[#FF4757] transition-all group border-2 border-transparent hover:border-[#FF4757]/20"
-                title="Keluar"
+                onClick={() => setShowNameModal(true)}
+                className="px-6 py-2 bg-[#5AAFD1] text-white rounded-full font-black text-xs uppercase tracking-[0.2em] shadow-[0_4px_0_#4691B0] hover:-translate-y-1 active:translate-y-0 transition-all ml-1 border-2 border-white"
               >
-                <span className="material-symbols-rounded text-base group-hover:rotate-12 transition-transform">logout</span>
+                MASUK
               </button>
-            </div>
+            ) : (
+              <div className="flex items-center gap-2 md:gap-3 bg-[#F0F8FF] px-2 md:px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-1">
+                <div className="w-8 h-8 rounded-full bg-white border-2 border-[#5AAFD1] overflow-hidden flex items-center justify-center shrink-0">
+                  <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
+                </div>
+                <div className="hidden sm:block">
+                  <p className="text-[9px] font-black text-[#A0AEC0] tracking-widest leading-none mb-0.5">Petualang</p>
+                  <h4 className="text-[11px] font-black text-[#5AAFD1] truncate tracking-wide max-w-[80px] md:max-w-[100px]">{profile.name}</h4>
+                </div>
+                <button 
+                  onClick={handleLogout}
+                  className="hidden md:flex ml-2 items-center justify-center w-8 h-8 rounded-full hover:bg-white text-[#FF4757]/60 hover:text-[#FF4757] transition-all group border-2 border-transparent hover:border-[#FF4757]/20"
+                  title="Keluar"
+                >
+                  <span className="material-symbols-rounded text-base group-hover:rotate-12 transition-transform">logout</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>
+
+      {showNameModal && (
+        <NamePromptModal onClose={() => setShowNameModal(false)} />
+      )}
 
       <MobileNav 
         isOpen={isMenuOpen} 
@@ -102,6 +119,8 @@ export default function Navbar() {
         profileName={profile.name}
         avatarUrl={getAvatarUrl()}
         onLogout={handleLogout}
+        onLogin={() => setShowNameModal(true)}
+        isDefaultUser={isDefaultUser}
       />
     </>
   );

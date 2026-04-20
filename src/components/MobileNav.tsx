@@ -9,9 +9,11 @@ interface MobileNavProps {
   profileName?: string;
   avatarUrl?: string;
   onLogout?: () => void;
+  onLogin?: () => void;
+  isDefaultUser?: boolean;
 }
 
-export default function MobileNav({ isOpen, onClose, profileName, avatarUrl, onLogout }: MobileNavProps) {
+export default function MobileNav({ isOpen, onClose, profileName, avatarUrl, onLogout, onLogin, isDefaultUser }: MobileNavProps) {
   const pathname = usePathname();
 
   const menuItems = [
@@ -73,16 +75,28 @@ export default function MobileNav({ isOpen, onClose, profileName, avatarUrl, onL
           </nav>
 
           {/* Footer */}
-          {onLogout && (
+          {isDefaultUser ? (
             <div className="p-6 border-t-4 border-[#F0F8FF]">
               <button 
-                onClick={() => { onLogout(); onClose(); }}
-                className="w-full py-3 rounded-2xl bg-[#FFF5F5] text-[#FF4757] font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 border-2 border-[#FFE5E5] hover:bg-[#FFE5E5] transition-all"
+                onClick={() => { onLogin?.(); onClose(); }}
+                className="w-full py-4 rounded-2xl bg-[#5AAFD1] text-white font-black text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-2 shadow-[0_6px_0_#4691B0] hover:-translate-y-1 active:translate-y-0 transition-all border-2 border-white"
               >
-                <span className="material-symbols-rounded text-lg">logout</span>
-                Keluar
+                <span className="material-symbols-rounded text-lg">login</span>
+                Masuk
               </button>
             </div>
+          ) : (
+            onLogout && (
+              <div className="p-6 border-t-4 border-[#F0F8FF]">
+                <button 
+                  onClick={() => { onLogout(); onClose(); }}
+                  className="w-full py-3 rounded-2xl bg-[#FFF5F5] text-[#FF4757] font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 border-2 border-[#FFE5E5] hover:bg-[#FFE5E5] transition-all"
+                >
+                  <span className="material-symbols-rounded text-lg">logout</span>
+                  Keluar
+                </button>
+              </div>
+            )
           )}
         </div>
       </aside>
