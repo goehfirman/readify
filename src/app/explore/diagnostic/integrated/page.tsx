@@ -805,7 +805,7 @@ export default function IntegratedDiagnosticPage() {
     <div className="min-h-screen bg-[#F0F8FF] font-body text-[#333333] relative overflow-x-hidden">
        {/* Top Navbar */}
        <nav className="fixed top-0 left-0 right-0 z-[100] bg-white border-b-4 border-[#E2E8F0] shadow-sm animate-bounce-in">
-         <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+         <div className="max-w-5xl mx-auto px-6 md:px-8 py-3 flex items-center justify-between">
            <Link href="/" className="hover:scale-105 transition-transform flex items-center shrink-0">
              <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={110} height={35} className="object-contain drop-shadow-md" />
            </Link>
@@ -862,7 +862,7 @@ export default function IntegratedDiagnosticPage() {
        />
 
        {/* Main Layout Content */}
-       <main className="w-full max-w-6xl mt-32 px-4 md:px-8 pb-32 relative z-50">
+       <main className="w-full max-w-5xl mt-32 px-6 md:px-8 pb-32 relative z-50">
          
 
 
@@ -923,8 +923,8 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 3. Intermission */}
          {step === "fluency_intermission" && (
-            <div className="animate-bounce-in max-w-2xl mx-auto mt-20 text-center">
-               <div className="card-bubbly bg-[#FFF3E0] p-12 border-[#FFB347]">
+            <div className="animate-bounce-in max-w-3xl mx-auto mt-10 text-center">
+               <div className="card-bubbly bg-[#FFF3E0] p-12 border-[#FFB347] shadow-[0_30px_60px_rgba(255,179,71,0.15)]">
                   <h2 className="text-4xl font-black text-[#E69A2E] mb-4">Luar Biasa! 🎉</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kamu sangat lancar di Level {currentLevel?.id}! <br/> Siap untuk tantangan yang lebih tinggi?</p>
                   <button onClick={nextFluencyLevel} className="btn-bubbly px-10 py-4 text-lg bg-[#FFB347] mx-auto flex items-center gap-2">LANJUT KE LEVEL {selectedLevels[currentLevelIdx+1]?.id} <span className="material-symbols-rounded">trending_up</span></button>
@@ -934,8 +934,8 @@ export default function IntegratedDiagnosticPage() {
 
          {/* 4. Decision Transition */}
          {step === "decision" && (
-            <div className="animate-bounce-in max-w-2xl mx-auto mt-20 text-center">
-               <div className="card-bubbly bg-[#E0F2FE] p-12 border-[#87CEEB]">
+            <div className="animate-bounce-in max-w-3xl mx-auto mt-10 text-center">
+               <div className="card-bubbly bg-[#E0F2FE] p-12 border-[#87CEEB] shadow-[0_30px_60px_rgba(135,206,235,0.15)]">
                   <h2 className="text-4xl font-black text-[#5AAFD1] mb-4">Kamu Hebat! 🏆</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kelancaran membacamu sudah di level {currentLevel?.id}. Sekarang, ayo kita uji pemahamanmu dengan satu cerita menarik!</p>
 
