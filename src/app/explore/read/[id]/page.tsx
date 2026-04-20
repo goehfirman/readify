@@ -269,7 +269,7 @@ export default function ReadingRoom() {
 
 
   return (
-    <div className="flex flex-col h-screen bg-[#E5E7EB] font-body text-[#333333] relative overflow-hidden">
+    <div className="flex flex-col h-screen bg-[#E5E7EB] font-body text-[#333333] relative overflow-hidden" style={{ zoom: 0.9 }}>
       
       {/* Top bar Tooling */}
       <header className={`bg-white px-4 md:px-8 py-3 flex w-full items-center justify-between z-[60] shadow-[0_2px_10px_rgba(0,0,0,0.05)] border-b border-[#E2E8F0] absolute top-0 left-0 right-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isNavVisible ? 'translate-y-0' : '-translate-y-full'}`} onMouseEnter={() => setIsNavVisible(true)}>
