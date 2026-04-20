@@ -46,7 +46,7 @@ export default function LandingPage() {
           {/* Left: Text Content */}
           <div className="max-w-2xl">
             <div className="flex flex-wrap gap-2 mb-3 animate-bounce-in" style={{ animationDelay: '0.1s' }}>
-              <span className="px-3 py-1.5 rounded-full bg-[#FFB347]/20 border-2 border-[#FFB347] text-[#E69A2E] text-[10px] font-black tracking-widest shadow-sm">
+              <span className="px-3 py-1.5 rounded-full bg-[#5AAFD1]/20 border-2 border-[#5AAFD1] text-[#4691B0] text-[10px] font-black tracking-widest shadow-sm">
                 Teman Membaca Pintar
               </span>
               <span className="px-3 py-1.5 rounded-full bg-[#87CEEB]/20 border-2 border-[#87CEEB] text-[#5AAFD1] text-[10px] font-black tracking-widest shadow-sm">
@@ -65,7 +65,7 @@ export default function LandingPage() {
             </p>
  
             <div className="flex flex-wrap gap-4 animate-bounce-in" style={{ animationDelay: '0.4s' }}>
-              <button onClick={handleMulai} className="btn-bubbly !text-sm !px-6 !py-3 flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+              <button onClick={handleMulai} className="btn-bubbly !text-sm !px-6 !py-3 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 bg-[#5AAFD1] shadow-[0_6px_0_#4691B0]">
                 Mulai Membaca Sekarang <span className="material-symbols-rounded font-bold text-lg">rocket_launch</span>
               </button>
             </div>
@@ -74,7 +74,7 @@ export default function LandingPage() {
           {/* Right: Interactive Metamorphosis Cycle */}
           <div className="hidden lg:flex items-center justify-center relative w-[500px] h-[500px] shrink-0 group/orbit">
              {/* Center Glow */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#FFB347]/10 rounded-full blur-3xl animate-pulse"></div>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#5AAFD1]/10 rounded-full blur-3xl animate-pulse"></div>
              
              {/* SVG Arrows Layer (Orbits) */}
              <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible animate-orbit group-hover/orbit:[animation-play-state:paused]" viewBox="0 0 500 500">
@@ -87,7 +87,7 @@ export default function LandingPage() {
                    </filter>
                    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#5AAFD1" />
-                      <stop offset="100%" stopColor="#FFB347" />
+                      <stop offset="100%" stopColor="#87CEEB" />
                    </linearGradient>
                 </defs>
                 {/* Circular Path for Pulse Animation */}
@@ -157,8 +157,8 @@ export default function LandingPage() {
 
 
 
-      {/* JENJANG PEMBACA SECTION */}
-      <section className="bg-[#FFB347] pt-20 pb-32 px-8 relative overflow-hidden">
+      {/* JENJANG PEMBACA SECTION - Blue Rebrand */}
+      <section className="bg-[#5AAFD1] pt-20 pb-32 px-8 relative overflow-hidden">
         {/* Animated Background Shapes */}
         <div className="absolute top-10 left-10 w-24 h-24 bg-white/20 rounded-full animate-float-cloud"></div>
         <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full animate-float-cloud" style={{ animationDelay: '1s' }}></div>
@@ -174,7 +174,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
             {[
-              { id: 'A', title: 'Pembaca Dini', desc: 'Mengenal huruf & bunyi suku kata.', color: '#FFB347', image: 'https://i.ibb.co.com/RptQhrgk/A.png' },
+              { id: 'A', title: 'Pembaca Dini', desc: 'Mengenal huruf & bunyi suku kata.', color: '#5AAFD1', image: 'https://i.ibb.co.com/RptQhrgk/A.png' },
               { id: 'B', title: 'Pembaca Awal', desc: 'Mulai merangkai kata & kalimat pendek.', color: '#87CEEB', image: 'https://i.ibb.co.com/ZRcw6TTW/B.png' },
               { id: 'C', title: 'Pembaca Semenjana', desc: 'Lancar membaca & paham isi cerita.', color: '#34D399', image: 'https://i.ibb.co.com/h1CsCtdN/C.png' },
               { id: 'D', title: 'Pembaca Madya', desc: 'Mampu analisis & ambil pesan cerita.', color: '#A78BFA', image: 'https://i.ibb.co.com/G3W8wFSf/D.png' },
@@ -210,9 +210,9 @@ export default function LandingPage() {
              <Image src="https://i.ibb.co.com/cXwhYkn7/Desain-tanpa-judul-21.png" alt="Readify Logo" width={140} height={45} className="object-contain" />
           </Link>
           <div className="flex gap-8 text-xs font-black tracking-widest text-[#A0AEC0]">
-             <a href="#" className="hover:text-[#FFB347] transition-colors">Rahasia Data</a>
-             <a href="#" className="hover:text-[#FFB347] transition-colors">Aturan Pakai</a>
-             <a href="#" className="hover:text-[#FFB347] transition-colors">Hubungi Kami</a>
+             <a href="#" className="hover:text-[#5AAFD1] transition-colors">Rahasia Data</a>
+             <a href="#" className="hover:text-[#5AAFD1] transition-colors">Aturan Pakai</a>
+             <a href="#" className="hover:text-[#5AAFD1] transition-colors">Hubungi Kami</a>
           </div>
         </div>
       </footer>
@@ -221,7 +221,7 @@ export default function LandingPage() {
       <div className="fixed bottom-0 left-0 right-0 p-4 md:hidden z-[100] animate-bounce-in" style={{ animationDelay: '0.6s' }}>
         <button 
           onClick={handleMulai}
-          className="w-full bg-[#FFB347] text-white py-4 rounded-[24px] font-black text-xs uppercase tracking-widest shadow-[0_10px_30px_rgba(255,179,71,0.4)] border-4 border-white flex items-center justify-center gap-3 active:scale-95 transition-transform"
+          className="w-full bg-[#5AAFD1] text-white py-4 rounded-[24px] font-black text-xs uppercase tracking-widest shadow-[0_10px_30px_rgba(90,175,209,0.4)] border-4 border-white flex items-center justify-center gap-3 active:scale-95 transition-transform"
         >
           <span>Ayo Mulai Membaca! 👋</span>
           <span className="material-symbols-rounded font-bold text-lg">rocket_launch</span>

@@ -125,9 +125,9 @@ export default function AdminUsers() {
                           <td className="px-6 py-6">
                              <div className="flex items-center gap-3">
                                 <div className="flex-1 h-3 w-16 bg-[#F0F8FF] rounded-full border-2 border-[#E2E8F0] overflow-hidden">
-                                   <div className={`h-full ${student.accuracy > 80 ? 'bg-[#34D399]' : student.accuracy > 70 ? 'bg-[#FFB347]' : 'bg-[#FF4757]'}`} style={{ width: `${student.accuracy}%` }}></div>
+                                   <div className={`h-full ${student.accuracy > 80 ? 'bg-[#34D399]' : student.accuracy > 70 ? 'bg-[#5AAFD1]' : 'bg-[#FF4757]'}`} style={{ width: `${student.accuracy}%` }}></div>
                                 </div>
-                                <span className={`text-sm font-black ${student.accuracy > 80 ? 'text-[#34D399]' : student.accuracy > 70 ? 'text-[#FFB347]' : 'text-[#FF4757]'}`}>{student.accuracy}%</span>
+                                <span className={`text-sm font-black ${student.accuracy > 80 ? 'text-[#34D399]' : student.accuracy > 70 ? 'text-[#5AAFD1]' : 'text-[#FF4757]'}`}>{student.accuracy}%</span>
                              </div>
                           </td>
                           <td className="px-6 py-6">

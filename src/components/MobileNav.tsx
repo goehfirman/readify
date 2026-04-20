@@ -37,7 +37,7 @@ export default function MobileNav({ isOpen, onClose, profileName, avatarUrl, onL
           {/* Header */}
           <div className="p-6 border-b-4 border-[#F0F8FF] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#F0F8FF] border-2 border-[#FFB347] overflow-hidden flex items-center justify-center shadow-inner">
+              <div className="w-10 h-10 rounded-full bg-[#F0F8FF] border-2 border-[#5AAFD1] overflow-hidden flex items-center justify-center shadow-inner">
                 <img src={avatarUrl || "https://api.dicebear.com/7.x/adventurer/svg?seed=Petualang"} alt="Avatar" className="w-full h-full object-cover" />
               </div>
               <div>
@@ -61,7 +61,7 @@ export default function MobileNav({ isOpen, onClose, profileName, avatarUrl, onL
                   onClick={onClose}
                   className={`flex items-center gap-4 p-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all ${
                     isActive 
-                    ? 'bg-[#FFB347] text-white shadow-[0_4px_0_#E69A2E]' 
+                    ? 'bg-[#5AAFD1] text-white shadow-[0_4px_0_#4691B0]' 
                     : 'text-[#666666] hover:bg-[#F8FAFC] hover:text-[#5AAFD1]'
                   }`}
                 >

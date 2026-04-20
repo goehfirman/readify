@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #FFB347; /* Soft Orange / Mango */
-  --color-secondary: #87CEEB; /* Sky Blue */
+  --color-primary: #5AAFD1; /* Sky Blue */
+  --color-secondary: #FFB347; /* Swapped: Soft Orange / Mango is now secondary */
   --color-surface: #FFFFFF;
   --color-surface-raised: #F0F8FF; /* Alice Blue */
   --color-ink: #333333;
@@ -17,7 +17,7 @@
 /* ─── Base ─── */
 @layer base {
   body {
-    @apply bg-[#F0F8FF] text-[#333333] selection:bg-[#FFB347] selection:text-white;
+    @apply bg-[#F0F8FF] text-[#333333] selection:bg-[#5AAFD1] selection:text-white;
     zoom: 0.9;
   }
 }
@@ -35,18 +35,18 @@
 }
 
 .btn-bubbly {
-  @apply px-8 py-4 bg-[#FFB347] text-white font-black text-xl tracking-wide rounded-full transition-all duration-300;
-  box-shadow: 0 6px 0 #E69A2E;
+  @apply px-8 py-4 bg-[#5AAFD1] text-white font-black text-xl tracking-wide rounded-full transition-all duration-300;
+  box-shadow: 0 6px 0 #4691B0;
 }
 
 .btn-bubbly:hover {
-  @apply -translate-y-1 bg-[#FFBF66];
-  box-shadow: 0 8px 0 #E69A2E;
+  @apply -translate-y-1 bg-[#87CEEB];
+  box-shadow: 0 8px 0 #4691B0;
 }
 
 .btn-bubbly:active {
   @apply translate-y-1;
-  box-shadow: 0 2px 0 #E69A2E;
+  box-shadow: 0 2px 0 #4691B0;
 }
 
 .btn-bubbly-secondary {

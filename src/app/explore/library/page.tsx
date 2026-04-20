@@ -202,7 +202,7 @@ export default function ExploreLibrary() {
                      <h3 className="text-sm font-black text-[#333333] leading-tight mb-2 line-clamp-2">{book.title}</h3>
                      <div className="flex items-center gap-2 mb-3">
                         <span className={`px-2 py-0.5 rounded-full text-[9px] font-black text-white shadow-sm flex items-center ${
-                           book.level === 'Pembaca Dini' ? 'bg-[#FFB347] border-2 border-[#E69A2E]' : 
+                           book.level === 'Pembaca Dini' ? 'bg-[#5AAFD1] border-2 border-[#4691B0]' : 
                            book.level === 'Pembaca Awal' ? 'bg-[#FF4757] border-2 border-[#D63031]' : 
                            book.level === 'Pembaca Semenjana' ? 'bg-[#34D399] border-2 border-[#059669]' : 
                            book.level === 'Pembaca Madya' ? 'bg-[#5AAFD1] border-2 border-[#3894B7]' : 

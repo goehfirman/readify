@@ -226,7 +226,7 @@ export default function ComprehensionDiagnosticPage() {
                     setShowQuestions(true);
                     setTimeout(() => document.getElementById("quiz-section")?.scrollIntoView({ behavior: 'smooth' }), 300);
                   }} 
-                  className="btn-bubbly px-8 py-2 bg-[#87CEEB] border-[#5AAFD1] text-white flex items-center gap-2 shadow-[0_4px_0_#5AAFD1] text-base"
+                  className="btn-bubbly px-8 py-2 bg-[#5AAFD1] border-[#4691B0] text-white flex items-center gap-2 shadow-[0_4px_0_#4691B0] text-base"
                 >
                   TAMPILKAN PERTANYAAN <span className="material-symbols-rounded text-xl">expand_more</span>
                 </button>

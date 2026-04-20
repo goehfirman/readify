@@ -129,7 +129,7 @@ export default function AdminDashboard() {
               <div className="lg:col-span-2 bg-white rounded-[32px] p-8 border-4 border-[#E2E8F0] shadow-sm">
                  <div className="flex justify-between items-center mb-8 border-b-4 border-[#F8FAFC] pb-4">
                     <h3 className="text-xl font-black uppercase tracking-tight text-[#333333]">Aktivitas Pengguna</h3>
-                    <button className="text-[10px] font-black text-[#FFB347] uppercase tracking-widest hover:bg-[#FFF3E0] px-4 py-2 rounded-full transition-colors">Lihat Semua</button>
+                    <button className="px-6 py-2.5 bg-[#5AAFD1] text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-[0_4px_0_#4691B0] transition-all hover:-translate-y-1 active:translate-y-0">Lihat Semua</button>
                  </div>
                  <div className="space-y-4">
                     {RECENT_ACTIVITY.map((act) => (
@@ -138,7 +138,7 @@ export default function AdminDashboard() {
                           <div className="flex-1">
                              <div className="flex justify-between items-center mb-1">
                                 <p className="text-base font-black text-[#333333] leading-none">{act.user}</p>
-                                <span className={`text-[10px] font-black uppercase px-2 py-1 rounded-full border-2 ${act.status === 'Lancar' ? 'bg-[#D1FAE5] text-[#059669] border-[#34D399]' : 'bg-[#FFF3E0] text-[#E69A2E] border-[#FFB347]'}`}>{act.status}</span>
+                                <span className={`text-[10px] font-black uppercase px-2 py-1 rounded-full border-2 ${act.status === 'Lancar' ? 'bg-[#D1FAE5] text-[#059669] border-[#34D399]' : 'bg-[#E0F2FE] text-[#5AAFD1] border-[#BEE3F8]'}`}>{act.status}</span>
                              </div>
                              <p className="text-sm font-bold text-[#666666] mb-1">{act.action}</p>
                              <p className="text-[10px] font-black text-[#A0AEC0] uppercase tracking-widest">{act.time}</p>
@@ -155,7 +155,7 @@ export default function AdminDashboard() {
                        {[
                           { l: 'SDG 15 - Darat', p: 85, c: 'bg-emerald-400', b: 'bg-[#D1FAE5]' },
                           { l: 'SDG 6 - Air', p: 40, c: 'bg-blue-400', b: 'bg-[#E0F2FE]' },
-                          { l: 'SDG 13 - Iklim', p: 65, c: 'bg-[#FFB347]', b: 'bg-[#FFF3E0]' },
+                          { l: 'SDG 13 - Iklim', p: 65, c: 'bg-[#5AAFD1]', b: 'bg-[#E0F2FE]' },
                        ].map(t => (
                         <div key={t.l}>
                            <div className="flex justify-between text-[11px] font-black uppercase tracking-widest mb-2 text-[#666666]">
@@ -170,16 +170,16 @@ export default function AdminDashboard() {
                     </div>
                  </div>
 
-                 <div className="bg-[#FFF3E0] rounded-[32px] p-8 border-4 border-[#FFE0B2] shadow-sm relative overflow-hidden">
-                    <span className="material-symbols-rounded absolute -right-6 -bottom-6 text-9xl text-[#FFE0B2] opacity-50 z-0 select-none">tips_and_updates</span>
+                 <div className="bg-[#E0F2FE] rounded-[32px] p-8 border-4 border-[#BEE3F8] shadow-sm relative overflow-hidden">
+                    <span className="material-symbols-rounded absolute -right-6 -bottom-6 text-9xl text-[#BEE3F8] opacity-50 z-0 select-none">tips_and_updates</span>
                     <div className="relative z-10">
                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-4 border-[#FFE0B2]">
-                             <span className="material-symbols-rounded text-xl text-[#FFB347]">tips_and_updates</span>
+                          <div className="w-12 h-12 bg-[#F0F8FF] rounded-xl flex items-center justify-center text-[#5AAFD1] border-2 border-[#E2E8F0]">
+                             <span className="material-symbols-rounded text-xl text-[#5AAFD1]">tips_and_updates</span>
                           </div>
-                          <h3 className="text-xl font-black uppercase tracking-tight leading-none text-[#E69A2E]">Asisten Pintar</h3>
+                          <h3 className="text-xl font-black uppercase tracking-tight leading-none text-[#5AAFD1]">Asisten Pintar</h3>
                        </div>
-                       <p className="text-sm font-bold text-[#E69A2E] leading-relaxed">
+                       <p className="text-sm font-bold text-[#5AAFD1] leading-relaxed">
                           "Selamat bekerja! Selalu pantau data terbaru untuk memberikan pengalaman terbaik bagi seluruh pengguna Readify."
                        </p>
                     </div>

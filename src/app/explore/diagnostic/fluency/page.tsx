@@ -212,7 +212,7 @@ export default function FluencyDiagnosticPage() {
            <div className="flex items-center justify-between mb-8 max-w-5xl mx-auto animate-bounce-in">
              {/* Left: Badge */}
              <div className="flex items-center gap-2 md:gap-3 bg-white px-3 md:px-4 py-2 rounded-2xl border-4 border-[#E2E8F0] shadow-sm">
-                 <div className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-sm font-black text-sm text-white" style={{ backgroundColor: '#FFB347' }}>
+                 <div className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-sm font-black text-sm text-white" style={{ backgroundColor: '#5AAFD1' }}>
                     {currentLevelData.id}
                  </div>
                  <div className="text-left">
@@ -226,7 +226,7 @@ export default function FluencyDiagnosticPage() {
                 {!isReading ? (
                    <button 
                      onClick={startReading} 
-                     className="btn-bubbly px-8 py-2 bg-[#FFB347] flex items-center gap-2 shadow-[0_4px_0_#E69A2E] text-base"
+                     className="btn-bubbly px-8 py-2 bg-[#5AAFD1] flex items-center gap-2 shadow-[0_4px_0_#4691B0] text-base"
                    >
                      Mulai Membaca <span className="material-symbols-rounded text-xl">mic</span>
                    </button>
@@ -239,7 +239,7 @@ export default function FluencyDiagnosticPage() {
                    </button>
                 )}
 
-                <div className={`flex items-center gap-2 px-6 py-2 rounded-2xl font-black text-xl border-4 shadow-sm transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
+                <div className={`flex items-center gap-2 px-6 py-2 rounded-2xl font-black text-xl border-4 shadow-sm transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#5AAFD1]'}`}>
                     <span className="material-symbols-rounded text-2xl">timer</span>
                     {timeLeft}s
                 </div>
@@ -267,7 +267,7 @@ export default function FluencyDiagnosticPage() {
                         { step: "03", title: "Hasil", icon: "military_tech", desc: "Lihat level akhirmu" },
                      ].map((s) => (
                         <div key={s.title} className="card-bubbly p-6 flex flex-col items-center text-center gap-3">
-                           <div className="w-14 h-14 bg-[#FFB347] text-white rounded-full flex items-center justify-center border-4 border-[#FFF3E0] shadow-sm">
+                           <div className="w-14 h-14 bg-[#5AAFD1] text-white rounded-full flex items-center justify-center border-4 border-[#F0F8FF] shadow-sm">
                               <span className="material-symbols-rounded text-3xl">{s.icon}</span>
                            </div>
                            <div>

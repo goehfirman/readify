@@ -26,10 +26,10 @@ export default function NamePromptModal({ onClose, isCompulsory = false }: NameP
         onClick={() => !isCompulsory && onClose?.()}
       ></div>
       
-      <div className="bg-white rounded-[40px] border-8 border-[#FFB347] p-8 md:p-12 max-w-[440px] w-full relative z-10 shadow-[0_30px_70px_rgba(0,0,0,0.3)] animate-bounce-in">
+      <div className="bg-white rounded-[40px] border-8 border-[#5AAFD1] p-8 md:p-12 max-w-[440px] w-full relative z-10 shadow-[0_30px_70px_rgba(0,0,0,0.3)] animate-bounce-in">
         
         <div className="flex justify-center mb-6">
-          <div className="w-20 h-20 bg-[#F0F8FF] rounded-3xl border-4 border-[#FFB347] flex items-center justify-center animate-bounce">
+          <div className="w-20 h-20 bg-[#F0F8FF] rounded-3xl border-4 border-[#5AAFD1] flex items-center justify-center animate-bounce">
             <span className="text-4xl">👋</span>
           </div>
         </div>
@@ -50,9 +50,9 @@ export default function NamePromptModal({ onClose, isCompulsory = false }: NameP
               onChange={(e) => setInputName(e.target.value)}
               placeholder="Ketik namamu di sini..."
               autoFocus
-              className="w-full bg-[#F0F8FF] border-4 border-[#E2E8F0] rounded-[24px] px-8 py-4 text-base font-black text-[#333333] placeholder:text-[#A0AEC0] outline-none focus:border-[#FFB347] transition-all shadow-inner text-center focus:scale-[1.02]"
+              className="w-full bg-[#F0F8FF] border-4 border-[#E2E8F0] rounded-[24px] px-8 py-4 text-base font-black text-[#333333] placeholder:text-[#A0AEC0] outline-none focus:border-[#5AAFD1] transition-all shadow-inner text-center focus:scale-[1.02]"
             />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 material-symbols-rounded text-[#A0AEC0] group-focus-within:text-[#FFB347] transition-colors">edit</span>
+            <span className="absolute right-6 top-1/2 -translate-y-1/2 material-symbols-rounded text-[#A0AEC0] group-focus-within:text-[#5AAFD1] transition-colors">edit</span>
           </div>
           
           <button 
@@ -60,7 +60,7 @@ export default function NamePromptModal({ onClose, isCompulsory = false }: NameP
             disabled={!inputName.trim()}
             className={`w-full py-5 rounded-[24px] font-black text-lg tracking-[0.1em] transition-all uppercase ${
               inputName.trim() 
-              ? 'bg-[#FFB347] text-white shadow-[0_8px_0_#E69A2E] hover:-translate-y-1 hover:shadow-[0_12px_0_#E69A2E] active:translate-y-1 active:shadow-none' 
+              ? 'bg-[#5AAFD1] text-white shadow-[0_8px_0_#4691B0] hover:-translate-y-1 hover:shadow-[0_12px_0_#4691B0] active:translate-y-1 active:shadow-none' 
               : 'bg-[#E2E8F0] text-[#A0AEC0] cursor-not-allowed'
             }`}
           >

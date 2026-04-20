@@ -122,7 +122,7 @@ const STORY_VARIATIONS: Record<string, any[]> = {
       ]
     },
     {
-      id: "C", title: "Rubah dan Anggur", theme: "Level C — Semenjana", icon: "eco", color: "#FFB347", colorDark: "#E69A2E", image: "/images/stories/comp_C_v2.png",
+      id: "C", title: "Rubah dan Anggur", theme: "Level C — Semenjana", icon: "eco", color: "#5AAFD1", colorDark: "#4691B0", image: "/images/stories/comp_C_v2.png",
       text: "Rubah yang cerdik mencoba mengambil buah anggur matang di sebuah pohon yang sangat tinggi. Dia mencoba melompat berkali-kali namun tetap gagal meraihnya. Akhirnya rubah itu menyerah dan berjalan pergi sambil berkata bahwa anggur itu pasti masam rasanya.",
       questions: [
         { type: "mc", question: "Apa buah yang ingin diambil rubah?", options: ["Apel", "Jeruk", "Anggur", "Pisang"], correctAnswers: [2], barrettLevel: "literal" },
@@ -222,7 +222,7 @@ const LEVEL_CHARACTERISTICS: Record<string, any> = {
     visual: "Ilustrasi sebagai pemanis, teks mulai dominan."
   },
   "C": {
-    id: "C", name: "Pembaca Semenjana", age: "10–13 tahun", symbol: "Lingkaran", color: "#1E3A8A",
+    id: "C", name: "Pembaca Semenjana", age: "10–13 tahun", symbol: "Lingkaran", color: "#5AAFD1",
     kpmRange: "90–110 KPM",
     metamorphosisImg: "https://i.ibb.co.com/h1CsCtdN/C.png",
     ability: "Sudah lancar membaca wacana, mampu berpikir logis, dan mulai belajar secara mandiri.",
@@ -302,12 +302,12 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
       >
         {/* Premium Border System */}
         <div className="absolute inset-0 border-[30px] border-[#1E3A8A] m-4 opacity-10"></div>
-        <div className="absolute inset-0 border-[4px] border-[#F6C000] m-12"></div>
+        <div className="absolute inset-0 border-[4px] border-[#5AAFD1] m-12"></div>
         <div className="absolute inset-0 border-[1px] border-[#1E3A8A] m-14 opacity-20"></div>
 
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1E3A8A 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F6C000] opacity-5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#5AAFD1] opacity-5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#87CEEB] opacity-5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="relative h-full flex flex-col items-center justify-between py-4 text-center">
@@ -321,9 +321,9 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
               DIAGNOSIS KEMAMPUAN MEMBACA
             </h2>
             <div className="flex items-center justify-center gap-4 mt-6">
-               <div className="h-[2px] w-32 bg-[#F6C000]"></div>
+               <div className="h-[2px] w-32 bg-[#5AAFD1]"></div>
                <div className="w-3 h-3 rotate-45 bg-[#1E3A8A]"></div>
-               <div className="h-[2px] w-32 bg-[#F6C000]"></div>
+               <div className="h-[2px] w-32 bg-[#5AAFD1]"></div>
             </div>
           </div>
 
@@ -341,8 +341,8 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
             </p>
 
             {/* Level Badge Box */}
-            <div className="inline-flex items-center gap-8 bg-white border-4 border-[#F6C000] p-6 rounded-[32px] shadow-xl relative mt-2">
-               <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#F6C000] rotate-45 flex items-center justify-center">
+            <div className="inline-flex items-center gap-8 bg-white border-4 border-[#5AAFD1] p-6 rounded-[32px] shadow-xl relative mt-2">
+               <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#5AAFD1] rotate-45 flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                </div>
                
@@ -354,7 +354,7 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
                </div>
 
                <div className="text-left pr-4">
-                 <p className="text-[14px] font-black text-[#F6C000] uppercase tracking-widest mb-1">JENJANG {levelData.id}</p>
+                 <p className="text-[14px] font-black text-[#5AAFD1] uppercase tracking-widest mb-1">JENJANG {levelData.id}</p>
                  <h4 className="text-[32px] font-black text-[#333333] tracking-tight uppercase leading-none">{levelData.name}</h4>
                </div>
 
@@ -379,9 +379,9 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
                    <p className="text-2xl font-black text-[#87CEEB]">{fluencyData.wpm}</p>
                    <p className="text-[8px] font-bold text-[#A0AEC0]">WPM</p>
                 </div>
-                <div className="bg-[#F8FAFC] p-4 rounded-2xl border-b-4 border-[#FFB347] text-center">
-                   <p className="text-[10px] font-black text-[#A0AEC0] uppercase mb-1">Skor</p>
-                   <p className="text-2xl font-black text-[#FFB347]">{compScore || '-'}</p>
+                <div className="bg-[#F0F8FF] p-4 rounded-2xl border-b-4 border-[#5AAFD1] text-center">
+                   <p className="text-[10px] font-black text-[#A0AEC0] uppercase tracking-widest mb-1">Skor</p>
+                   <p className="text-2xl font-black text-[#5AAFD1]">{compScore || '-'}</p>
                 </div>
              </div>
 
@@ -391,7 +391,7 @@ const CertificateTemplate = React.forwardRef<HTMLDivElement, {
                    <h5 className="text-[10px] font-black text-[#1E3A8A] uppercase mb-1">Profil Kemampuan</h5>
                    <p className="text-[12px] text-[#4A5568] leading-tight line-clamp-2">{levelData.ability}</p>
                 </div>
-                <div className="bg-[#FCF9EE] p-4 rounded-2xl border-l-[6px] border-[#F6C000]">
+                <div className="bg-[#FCF9EE] p-4 rounded-2xl border-l-[6px] border-[#5AAFD1]">
                    <h5 className="text-[10px] font-black text-[#B45309] uppercase mb-1">Karakteristik Teks</h5>
                    <p className="text-[12px] text-[#4A5568] leading-tight line-clamp-2">{levelData.language}</p>
                 </div>
@@ -816,7 +816,7 @@ export default function IntegratedDiagnosticPage() {
                   <div className="flex justify-between items-center mb-10">
                       {/* Left: Level Badge */}
                       <div className="flex items-center gap-4 bg-white px-5 py-2.5 rounded-full border-4 border-[#E2E8F0] shadow-sm">
-                         <div className="w-10 h-10 bg-[#FFB347] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
+                         <div className="w-10 h-10 bg-[#5AAFD1] rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-sm">{currentLevel?.id}</div>
 
                          <div className="text-left font-black uppercase">
                             <p className="text-[9px] text-[#A0AEC0] tracking-widest leading-none mb-0.5">Kelancaran</p>
@@ -829,7 +829,7 @@ export default function IntegratedDiagnosticPage() {
                          {!isReading ? (
                             <button 
                               onClick={startFluencyReading} 
-                              className="btn-bubbly px-8 py-3 bg-[#FFB347] flex items-center gap-2 shadow-[0_4px_0_#E69A2E] text-base"
+                              className="btn-bubbly px-8 py-3 bg-[#5AAFD1] flex items-center gap-2 shadow-[0_4px_0_#4691B0] text-base"
                             >
                               Mulai Membaca <span className="material-symbols-rounded text-xl">mic</span>
                             </button>
@@ -852,7 +852,7 @@ export default function IntegratedDiagnosticPage() {
                             </div>
                          )}
 
-                         <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#FFB347]'}`}>
+                         <div className={`flex items-center gap-2 px-6 py-3 rounded-full font-black text-2xl border-4 transition-all ${timeLeft < 10 ? 'bg-[#FF4757] border-[#D63031] text-white animate-bounce' : 'bg-white border-[#E2E8F0] text-[#5AAFD1]'}`}>
                             <span className="material-symbols-rounded text-2xl">timer</span>{timeLeft}s
                          </div>
                       </div>
@@ -878,10 +878,10 @@ export default function IntegratedDiagnosticPage() {
          {/* 3. Intermission */}
          {step === "fluency_intermission" && (
             <div className="animate-bounce-in max-w-6xl mx-auto mt-10 text-center">
-               <div className="card-bubbly bg-[#FFF3E0] p-12 border-[#FFB347] shadow-[0_30px_60px_rgba(255,179,71,0.15)]">
-                  <h2 className="text-4xl font-black text-[#E69A2E] mb-4">Luar Biasa! 🎉</h2>
+               <div className="card-bubbly bg-[#F0F8FF] p-12 border-[#5AAFD1] shadow-[0_30px_60px_rgba(90,175,209,0.15)]">
+                  <h2 className="text-4xl font-black text-[#5AAFD1] mb-4">Luar Biasa! 🎉</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kamu sangat lancar di Level {currentLevel?.id}! <br/> Siap untuk tantangan yang lebih tinggi?</p>
-                  <button onClick={nextFluencyLevel} className="btn-bubbly px-10 py-4 text-lg bg-[#FFB347] mx-auto flex items-center gap-2">LANJUT KE LEVEL {selectedLevels[currentLevelIdx+1]?.id} <span className="material-symbols-rounded">trending_up</span></button>
+                  <button onClick={nextFluencyLevel} className="btn-bubbly px-10 py-4 text-lg bg-[#5AAFD1] mx-auto flex items-center gap-2 shadow-[0_6px_0_#4691B0]">LANJUT KE LEVEL {selectedLevels[currentLevelIdx+1]?.id} <span className="material-symbols-rounded">trending_up</span></button>
                </div>
             </div>
          )}
@@ -889,11 +889,11 @@ export default function IntegratedDiagnosticPage() {
          {/* 4. Decision Transition */}
          {step === "decision" && (
             <div className="animate-bounce-in max-w-6xl mx-auto mt-10 text-center">
-               <div className="card-bubbly bg-[#E0F2FE] p-12 border-[#87CEEB] shadow-[0_30px_60px_rgba(135,206,235,0.15)]">
+               <div className="card-bubbly bg-[#E0F2FE] p-12 border-[#5AAFD1] shadow-[0_30px_60px_rgba(90,175,209,0.15)]">
                   <h2 className="text-4xl font-black text-[#5AAFD1] mb-4">Kamu Hebat! 🏆</h2>
                   <p className="text-xl font-bold text-[#666666] mb-8">Kelancaran membacamu sudah di level {currentLevel?.id}. Sekarang, ayo kita uji pemahamanmu dengan satu cerita menarik!</p>
 
-                  <button onClick={startComprehension} className="btn-bubbly px-10 py-4 text-lg bg-[#87CEEB] mx-auto flex items-center gap-2 shadow-[0_6px_0_#5AAFD1]">Lanjut ke Tes Pemahaman <span className="material-symbols-rounded text-2xl">psychology</span></button>
+                  <button onClick={startComprehension} className="btn-bubbly px-10 py-4 text-lg bg-[#5AAFD1] mx-auto flex items-center gap-2 shadow-[0_6px_0_#4691B0]">Lanjut ke Tes Pemahaman <span className="material-symbols-rounded text-2xl">psychology</span></button>
                </div>
             </div>
          )}
@@ -969,7 +969,7 @@ export default function IntegratedDiagnosticPage() {
                         {currentQuestionIdx < (currentStory?.questions.length || 0) - 1 ? (
                            <button onClick={() => setCurrentQuestionIdx(v => v+1)} disabled={compAnswers[currentQuestionIdx] === null || (currentStory?.questions[currentQuestionIdx].type === 'essay' && !essayResults[currentQuestionIdx])} className="px-8 py-3 bg-[#333333] text-white rounded-xl font-black text-sm uppercase">Soal Berikutnya</button>
                         ) : (
-                           <button onClick={finishComprehension} disabled={!essayResults[currentQuestionIdx] && currentStory?.questions[currentQuestionIdx].type === 'essay'} className="px-10 py-4 bg-[#FFB347] text-white rounded-xl font-black uppercase text-sm shadow-[0_6px_0_#E69A2E]">Lihat Hasil Akhir!</button>
+                           <button onClick={finishComprehension} disabled={!essayResults[currentQuestionIdx] && currentStory?.questions[currentQuestionIdx].type === 'essay'} className="px-10 py-4 bg-[#5AAFD1] text-white rounded-xl font-black uppercase text-sm shadow-[0_6px_0_#4691B0]">Lihat Hasil Akhir!</button>
                         )}
                      </div>
                   </div>
@@ -1021,7 +1021,7 @@ export default function IntegratedDiagnosticPage() {
                             <button 
                                onClick={handleDownloadCertificate}
                                disabled={isGeneratingPDF}
-                               className={`px-6 py-3 bg-[#F6C000] text-white rounded-full font-black flex items-center gap-2 shadow-[0_4px_0_#D9A900] hover:-translate-y-0.5 transition-all active:translate-y-1 ${isGeneratingPDF ? 'opacity-50 cursor-not-allowed' : ''}`}
+                               className={`px-6 py-3 bg-[#5AAFD1] text-white rounded-full font-black flex items-center gap-2 shadow-[0_4px_0_#4691B0] hover:-translate-y-0.5 transition-all active:translate-y-1 ${isGeneratingPDF ? 'opacity-50 cursor-not-allowed' : ''}`}
                             >
                                {isGeneratingPDF ? (
                                   <>PROSES... <span className="animate-spin material-symbols-rounded">sync</span></>
@@ -1042,9 +1042,9 @@ export default function IntegratedDiagnosticPage() {
                         <p className="text-[10px] font-black text-[#A0AEC0] uppercase mb-4 tracking-widest">Kecepatan (WPM)</p>
                         <p className="text-5xl font-black text-[#87CEEB] tracking-tighter">{finalFluency.wpm}</p>
                      </div>
-                     <div className="bg-[#F8FAFC] p-8 rounded-[40px] border-4 border-[#E2E8F0] shadow-sm text-center">
-                        <p className="text-[10px] font-black text-[#A0AEC0] uppercase mb-4 tracking-widest">Skor Pemahaman</p>
-                        <p className="text-5xl font-black text-[#FFB347] tracking-tighter">{compScore !== null ? compScore : '-'}</p>
+                     <div className="bg-[#F0F8FF] p-8 rounded-[40px] border-4 border-[#E2E8F0] shadow-sm text-center">
+                        <p className="text-[10px] font-black text-[#A0AEC0] uppercase tracking-widest mb-4">Skor Pemahaman</p>
+                        <p className="text-5xl font-black text-[#5AAFD1] tracking-tighter">{compScore !== null ? compScore : '-'}</p>
                      </div>
                   </div>
 
@@ -1090,7 +1090,7 @@ export default function IntegratedDiagnosticPage() {
                         <div className="lg:col-span-5 flex flex-col gap-6">
                            <div className="card-bubbly bg-[#F8FAFC] border-[#E2E8F0] p-8 h-full">
                               <h4 className="text-sm font-black uppercase tracking-widest text-[#666666] mb-8 flex items-center gap-2">
-                                 <span className="material-symbols-rounded text-[#FFB347]">speed</span> Profil Kelancaran (1-16)
+                                 <span className="material-symbols-rounded text-[#5AAFD1]">speed</span> Profil Kelancaran (1-16)
                               </h4>
 
                               <div className="flex flex-col gap-4">
@@ -1100,14 +1100,14 @@ export default function IntegratedDiagnosticPage() {
                                     { label: 'Kelancaran', score: fluencyRubric?.automaticity, icon: 'bolt' },
                                     { label: 'Intonasi', score: fluencyRubric?.prosody, icon: 'campaign' }
                                  ].map((row, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3 bg-white rounded-2xl border-2 border-[#F1F5F9] group hover:border-[#FFB347]/30 transition-all">
+                                    <div key={idx} className="flex items-center justify-between p-3 bg-white rounded-2xl border-2 border-[#F1F5F9] group hover:border-[#5AAFD1]/30 transition-all">
                                        <div className="flex items-center gap-3">
-                                          <span className="material-symbols-rounded text-[#FFB347]">{row.icon}</span>
+                                          <span className="material-symbols-rounded text-[#5AAFD1]">{row.icon}</span>
                                           <span className="text-xs font-black uppercase text-[#666666] tracking-widest">{row.label}</span>
                                        </div>
                                        <div className="flex gap-1">
                                           {[1, 2, 3, 4].map(star => (
-                                             <div key={star} className={`w-3 h-3 rounded-full ${star <= (row.score || 0) ? 'bg-[#FFB347]' : 'bg-[#E2E8F0]'}`}></div>
+                                             <div key={star} className={`w-3 h-3 rounded-full ${star <= (row.score || 0) ? 'bg-[#5AAFD1]' : 'bg-[#E2E8F0]'}`}></div>
                                           ))}
                                        </div>
                                     </div>
@@ -1115,7 +1115,7 @@ export default function IntegratedDiagnosticPage() {
 
                                  <div className="mt-6 pt-6 border-t-2 border-[#F1F5F9] text-center">
                                     <p className="text-[10px] font-black uppercase tracking-widest text-[#A0AEC0] mb-2">Peringkat Akhir</p>
-                                    <div className="inline-block px-6 py-2 rounded-full bg-[#FFF7ED] text-[#FFB347] font-black uppercase tracking-tighter text-2xl border-2 border-[#FFEDD5]">
+                                    <div className="inline-block px-6 py-2 rounded-full bg-[#F0F8FF] text-[#5AAFD1] font-black uppercase tracking-tighter text-2xl border-2 border-[#E0F2FE]">
                                        {fluencyRubric?.label}
                                     </div>
                                  </div>
@@ -1151,8 +1151,8 @@ export default function IntegratedDiagnosticPage() {
                            </div>
                            <p className="text-[#333333] font-medium leading-relaxed">{finalLevelData.visual}</p>
                         </div>
-                        <div className="card-bubbly !bg-[#FFF7ED] !border-[#FFEDD5] p-8">
-                           <div className="flex items-center gap-3 mb-4 text-[#FFB347]">
+                        <div className="card-bubbly !bg-[#F0F8FF] !border-[#E0F2FE] p-8">
+                           <div className="flex items-center gap-3 mb-4 text-[#5AAFD1]">
                               <span className="material-symbols-rounded">tips_and_updates</span>
                               <h4 className="font-black uppercase tracking-widest text-sm">Saran Peningkatan</h4>
                            </div>

@@ -84,11 +84,11 @@ export default function AdminBooks() {
         {/* Header */}
         <header className="px-10 py-8 flex justify-between items-center relative z-10 border-b-4 border-white">
            <div>
-              <h1 className="text-3xl font-black uppercase tracking-tighter leading-none text-[#333333]">Pengaturan <span className="text-[#FFB347]">Buku</span></h1>
+              <h1 className="text-3xl font-black uppercase tracking-tighter leading-none text-[#333333]">Pengaturan <span className="text-[#5AAFD1]">Buku</span></h1>
               <p className="text-sm font-bold text-[#A0AEC0] mt-2">Kelola koleksi buku digital untuk seluruh pengguna</p>
            </div>
            
-           <Link href="/admin/books/new" className="btn-bubbly py-4 px-6 text-sm flex items-center gap-2">
+           <Link href="/admin/books/new" className="btn-bubbly py-4 px-6 text-sm flex items-center gap-2 !bg-[#5AAFD1] !border-[#4691B0] !shadow-[0_4px_0_#4691B0]">
               <span className="material-symbols-rounded text-lg">add</span>
               TAMBAH BUKU BARU
            </Link>
@@ -100,7 +100,7 @@ export default function AdminBooks() {
            {/* Stats */}
            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-3xl p-6 border-4 border-[#E2E8F0] shadow-sm flex items-center gap-4">
-                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center border-4 border-[#FFE0B2] bg-[#FFF3E0] text-[#FFB347]">
+                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center border-4 border-blue-100 bg-blue-50 text-[#5AAFD1]">
                     <span className="material-symbols-rounded text-3xl">auto_stories</span>
                  </div>
                  <div>
@@ -156,14 +156,14 @@ export default function AdminBooks() {
                                     />
                                 </div>
                                 <div>
-                                   <p className="text-base font-black text-[#333333] leading-tight group-hover:text-[#FFB347] transition-colors mb-1">{book.title}</p>
+                                   <p className="text-base font-black text-[#333333] leading-tight group-hover:text-[#5AAFD1] transition-colors mb-1">{book.title}</p>
                                    <p className="text-[10px] font-black text-[#A0AEC0] uppercase tracking-widest leading-none">{book.isLocal ? 'Unggahan Admin' : 'Readify Team'}</p>
                                 </div>
                              </div>
                           </td>
                           <td className="px-6 py-6">
                              <span className={`px-3 py-1.5 rounded-xl text-[10px] font-black text-white uppercase tracking-wider border-2 ${
-                                book.level === 'Pembaca Dini' ? 'bg-[#FFB347] border-[#E69A2E]' : 
+                                book.level === 'Pembaca Dini' ? 'bg-[#5AAFD1] border-[#4691B0]' : 
                                 book.level === 'Pembaca Awal' ? 'bg-[#FF4757] border-[#D63031]' : 
                                 book.level === 'Pembaca Semenjana' ? 'bg-[#34D399] border-[#059669]' : 
                                 book.level === 'Pembaca Madya' ? 'bg-[#5AAFD1] border-[#3894B7]' : 

@@ -47,22 +47,22 @@ export default function Navbar() {
                 href="/explore/library" 
                 className={`px-5 py-2 rounded-3xl flex items-center gap-2 font-bold text-xs uppercase tracking-wide transition-all group ${
                   pathname === "/explore/library" 
-                    ? "bg-[#FFB347] text-white border-4 border-[#E69A2E] shadow-[0_4px_0_#E69A2E]" 
+                    ? "bg-[#5AAFD1] text-white border-4 border-[#4691B0] shadow-[0_4px_0_#4691B0]" 
                     : "bg-white text-[#A0AEC0] border-4 border-transparent hover:border-[#E2E8F0] hover:bg-[#F8FAFC]"
                 }`}
               >
-                <span className={`material-symbols-rounded text-lg ${pathname !== "/explore/library" ? "group-hover:text-[#FFB347]" : ""}`}>auto_stories</span>
+                <span className={`material-symbols-rounded text-lg ${pathname === "/explore/library" ? "" : "group-hover:text-[#5AAFD1]"}`}>auto_stories</span>
                 <span>Perpustakaan</span>
               </Link>
               <Link 
                 href="/explore/diagnostic" 
                 className={`px-5 py-2 rounded-3xl flex items-center gap-2 font-bold text-xs uppercase tracking-wide transition-all group ${
                   pathname?.includes("/diagnostic") 
-                    ? "bg-[#FFB347] text-white border-4 border-[#E69A2E] shadow-[0_4px_0_#E69A2E]" 
+                    ? "bg-[#5AAFD1] text-white border-4 border-[#4691B0] shadow-[0_4px_0_#4691B0]" 
                     : "bg-white text-[#A0AEC0] border-4 border-transparent hover:border-[#E2E8F0] hover:bg-[#F8FAFC]"
                 }`}
               >
-                <span className={`material-symbols-rounded text-lg ${!pathname?.includes("/diagnostic") ? "group-hover:text-[#FFB347]" : ""}`}>stairs</span>
+                <span className={`material-symbols-rounded text-lg ${!pathname?.includes("/diagnostic") ? "group-hover:text-[#5AAFD1]" : ""}`}>stairs</span>
                 <span>Diagnosis Membaca</span>
               </Link>
             </div>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
             {/* Profile & Logout */}
             <div className="flex items-center gap-2 md:gap-3 bg-[#F0F8FF] px-2 md:px-4 py-1.5 rounded-full border-2 border-[#E2E8F0] shadow-inner ml-1">
-              <div className="w-8 h-8 rounded-full bg-white border-2 border-[#FFB347] overflow-hidden flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-white border-2 border-[#5AAFD1] overflow-hidden flex items-center justify-center shrink-0">
                 <img src={getAvatarUrl()} alt="User Avatar" className="w-full h-full object-cover" />
               </div>
               <div className="hidden sm:block">
