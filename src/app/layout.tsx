@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "READIFY - Teman Membaca Pintar",
   description: "Belajar membaca seru bersama teman pintar dan misi menjaga bumi",
   icons: {
-    icon: "https://i.ibb.co.com/4RRVvz5L/Screenshot-7.png"
+    icon: "https://i.ibb.co.com/cXV7sdBj/LOGO-WARNA.png"
   }
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
-        <link rel="icon" href="https://i.ibb.co.com/4RRVvz5L/Screenshot-7.png" />
+        <link rel="icon" href="https://i.ibb.co.com/cXV7sdBj/LOGO-WARNA.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           rel="stylesheet"
